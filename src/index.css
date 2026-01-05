@@ -1,0 +1,215 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.linkTag{
+    text-decoration: none;
+    color: #fff;
+}
+.linkDrop{
+    text-decoration: none;
+    color: #0B0729;
+}
+
+.navbarSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color:#fff;
+    background-color: #0B0729;
+    width: 100%;
+    position: relative;
+}
+.landscapeNavlits{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.navLists{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    cursor:pointer
+}
+.navLists li {
+    list-style: none;
+    font-size: 17px;
+    position: relative;
+    display: inline-block; 
+    padding-bottom: 3px;   
+    cursor: pointer;
+}
+.navLists li::before {
+    content: '';
+    position: absolute;
+    width: 0;                
+    height: 1.5px;
+    bottom: 0;               
+    left: 0;
+    background-color: #F7F7F7;
+    transition: width 0.4s ease-out; 
+}
+.navLists li:hover::before {
+    width: 88%;
+}
+.dropDownBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px 15px; 
+    background-color: #F7F7F7;
+    color: #0B0729;
+    cursor: pointer;
+}
+
+.toolsList {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    background-color: #F5F5F5;
+    color: #0B0729;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 17px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000000;
+}
+.linkDrop{
+    position: relative;
+    display: block;
+    width: fit-content;
+    cursor: pointer;
+    transition: color 0.2s ease-out;
+}
+.linkDrop::before {
+    content: '';
+    position: absolute;
+    width: 0;                
+    height: 1.5px;
+    bottom: 0;               
+    left: 0;
+    background-color: #0B0729;
+    transition: width 0.4s ease-out; 
+}
+.linkDrop:hover::before {
+    width: 88%;
+}
+.linkDrop:hover{
+    color:royalblue;
+}
+.searchBar{
+    padding: 5px;
+    border-radius: 10px;
+    padding-inline: 5px;
+    width: 200px;
+    height: 30px;
+    background-color: #F7F7F7;
+    color:#0B0729;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+.searchBar::placeholder{
+    color:#0B0729;
+}
+.menuIcon{
+    display: none;
+}
+.wholeLists{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 50px;
+}
+.mobileNavMenu{
+  display: none;
+}
+
+@media screen and (max-width:1024px){
+    .dropDownBox,.searchBar{
+        width: 150px;
+    }
+   
+    .wholeLists{
+        padding-right: 10px;
+        gap: 10px;
+    }
+    .navLists{
+        gap: 12px;
+    }
+}
+@media (max-width:768px){
+    .inputField,.dropDown,.landscapeNavlits{
+        display: none;
+    }
+    .menuIcon{
+        display: inline-block;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    .mobileNavMenu{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        position: absolute;
+        right: 5px;
+        background-color: #F7F7F7;
+        color: #0B0729;
+        top: 60px;
+        padding: 15px;
+        border-radius: 10px;
+        z-index: 10000;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+    }
+    .navListsPotrait li{
+        list-style: none;
+        margin: 8px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+}
+
+input[type="range"]{
+    --webkit-appearance: none;
+    background: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #e0e0e0;  
+  border-radius: 10px;
+}
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #020546;   
+  margin-top: -5px;
+}
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #020546;
+  border: none;
+}
+
+

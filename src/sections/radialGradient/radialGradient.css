@@ -1,0 +1,157 @@
+:root{
+    --lightBgColor:#F7F7F7;
+    --primaryTextColor:#0B0729;
+    --secondaryTextColor:rgb(35, 34, 92);
+    --darkColor:#fff;
+}
+
+.wholeRadialSection{
+    display: grid;
+    grid-template-columns: minmax(250px,275px) minmax(350px,1fr);
+    gap: 27px;
+}
+.mainradialSection{
+    display: grid;
+    grid-template-columns: minmax(225px,300px) minmax(225px,285px) minmax(225px,285px);
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 10px;
+}
+.previewRadialSection{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 10px;
+    border-radius: 8px;
+}
+.previewRadialSection h3{
+    color: var(--primaryTextColor);
+    text-align: center;
+}
+.previewRadialBox{
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--primaryTextColor);
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 14px;
+}
+
+.customGradient,.anglesRadial{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.customGradient{
+    margin-left: 10px;
+}
+.angleRadialInput{
+    width: 215px;
+    outline: none;
+    color: var(--primaryTextColor);
+}
+.pickerLabels{
+    color: var(--primaryTextColor);
+    margin: 0px 3px 3px 0px;
+}
+.colorDisplayRadial{
+    height: 30px;
+    width: 215px;
+    padding-inline: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+}
+.radialRangeDisplay{
+    width: 215px;
+    border-radius: 8px;
+    padding: 7px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+}
+.startingColorPicker,.endingColorPicker{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.radialSize{
+    width: 215px;
+    border-radius: 5px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    outline: none;
+    border: none;
+    padding: 8px;
+    font-size: 15px;
+    padding-inline: 5px;
+}
+.radialSize option{
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 5px;
+    border: none;
+}
+select option:checked{
+    background-color: var(--primaryTextColor);
+    color: var(--darkColor);
+}
+.RadialPreviewCodes{
+    background-color: var(--darkColor);
+    color: var(--primaryTextColor);
+    text-wrap: wrap;
+    padding: 9px;
+    font-size: 15px;
+    border-radius: 7px;
+}
+.radialCodeCopied{
+    color: #29c522;
+    margin: 5px 5px 0px 0px;
+}
+.radialnotCodeCopied{
+    color: var(--primaryTextColor);
+    margin: 5px 5px 0px 0px;
+}
+
+@media (max-width:1179px){
+.mainradialSection{
+    grid-template-columns: minmax(225px,300px) minmax(225px,285px);
+    
+}
+}
+@media (max-width:1024px){
+    .wholeRadialSection{
+    grid-template-columns: minmax(225px,250px) minmax(350px,1fr);
+    gap: 10px;
+    }
+    .mainradialSection{
+    grid-template-columns: minmax(225px,300px) minmax(225px,265px);
+    gap: 10px;
+}
+}
+
+@media (max-width:818px){
+    .mainradialSection{
+        grid-template-columns: minmax(275px,325px);
+        row-gap: 10px;
+        column-gap: 0px;
+    }
+}
+
+@media (max-width:600px){
+    .radialSideBar{
+        display: none;
+    }
+    .wholeRadialSection{
+        grid-template-columns: minmax(210px,1fr);
+    }
+
+    .mainradialSection{
+        grid-template-columns: minmax(275px,300px);
+       
+    }
+
+}

@@ -1,0 +1,78 @@
+:root{
+    --LightBgColor:#0B0729;
+    --darkTextColor:#fff;
+    --primaryBgcards:#F7F7F7;
+    --secondarytextColor:rgb(35, 34, 92);
+}
+main{
+    padding: 0px 30px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(300px,1fr));
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    height: 100vh;
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor);
+}
+.aboutSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+.title{
+    color: var(--LightBgColor);
+    font-size: 35px;
+}
+.homeDescription p{
+    color: rgb(35, 34, 92);
+    font-size: 18px;
+}
+.exploreButton{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background-color: var(--LightBgColor);
+    color: #fff;
+    padding: 9px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.explore{
+    border: none;
+    background-color: var(--LightBgColor);
+    color: var(--darkTextColor);
+    font-size: 16px;
+    cursor: pointer;
+}
+.exploreLink{
+    text-decoration: none;
+    color: var(--darkTextColor);
+}
+.exploreIcons{
+    color: var(--darkTextColor);
+    font-size: 16px;
+}
+.imageSection{
+    display: flex;
+    justify-content: center;
+}
+.heroSectionImage{
+    max-width: 80%;
+    height: auto;
+    border-radius: 11px;
+}
+
+@media (max-width:768px){
+    main{
+        display: grid;
+        grid-template-columns: minmax(300px,500px);
+        gap: 30px;
+    }
+    .explore{
+        font-size: 14px;
+    }
+}

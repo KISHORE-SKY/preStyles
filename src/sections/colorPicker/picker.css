@@ -1,0 +1,155 @@
+:root{
+    --lightBgColor:#F7F7F7;
+    --primaryTextColor:#0B0729;
+    --secondaryTextColor:rgb(35, 34, 92);
+    --darkColor:#fff;
+}
+
+.colorPickSection{
+    color: var(--primaryTextColor);
+    padding: 0px;
+    display: grid;
+    grid-template-columns: minmax(200px,250px) minmax(300px,1fr);
+    gap: 15px;
+}
+.colorSection{
+    display: grid;
+    grid-template-columns: minmax(300px,320px) repeat(2,minmax(150px,200px));
+    justify-content: center;
+    gap: 10px;
+    padding: 60px 30px;
+}
+.hexLabel{
+    color: var(--primaryTextColor);
+    font-size: 18px;
+    margin: 5px;
+    display: block;
+    align-self: flex-start;
+}
+.colorInput{
+    height: 40px;
+    width: 180px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-inline: 10px;
+    font-size: 17px;
+    cursor: pointer;
+
+}
+.colorValueDisplay{
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    width: 180px;
+    margin: 5px;
+}
+.rgbaHslValues{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 10px 0px 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewIcon{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 5px;
+}
+.previewIcon p{
+    color: var(--primaryTextColor);
+    font-size: 18px;
+}
+.picker-wrapper .react-colorful__interactive{
+    width: 275px;
+    height: auto;
+}
+.picker-wrapper .react-colorful__saturation{
+   height: auto;
+   width: 275px;
+   border-radius: 20px;
+}
+.picker-wrapper .react-colorful__hue {
+  height: 18px;
+  margin-top: 7px;
+  border-radius: 10px;
+  width: 275px;
+}
+.picker-wrapper  .react-colorful__saturation-pointer{
+    cursor: grab;
+}
+.picker-wrapper .react-colorful__pointer{
+    cursor: grab;
+} 
+.sloganOfPicker{
+    padding: 15px 0px;
+}
+.sloganOfPicker p{
+    font-size: 18px;
+    color: gray;
+}
+.inputsOfColor{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.coloredCopy{
+    color:#05852a;
+}
+.coloredCopyInActive{
+    color:#0B0729;
+}
+
+
+
+@media (max-width:1204px){
+     .colorSection{
+        display: grid;
+        grid-template-columns: minmax(300px,325px) minmax(200px,250px);
+         padding: 60px 20px;
+        row-gap: 20px;
+    }
+}
+@media (max-width:900px){
+    .colorSection{
+        display: grid;
+        grid-template-columns: minmax(300px,325px);
+        padding: 60px 30px;
+        justify-content: flex-start;
+        row-gap: 20px;
+    }
+}
+@media (max-width:768px){
+    
+    .colorPickSection{
+        display: grid;
+        grid-template-columns: minmax(200px,225px) minmax(300px,1fr);
+    }
+}
+@media (max-width:600px){
+    .colorPickSideNavbar{
+        display: none;
+    }
+    .colorPickSection{
+        display: grid;
+        grid-template-columns:  minmax(300px,1fr);
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width:375px){
+    .colorSection{
+        display: grid;
+        grid-template-columns: minmax(250px,1fr);
+        padding: 60px 15px;
+
+    }
+}
+  

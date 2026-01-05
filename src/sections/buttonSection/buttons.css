@@ -1,0 +1,352 @@
+:root{
+    --LightBgColor:#0B0729;
+    --darkTextColor:#fff;
+    --primaryBgcards:#F7F7F7;
+    --secondarytextColor:rgb(35, 34, 92);
+}
+
+.buttonMainSection{
+    display: grid;
+    grid-template-columns: minmax(250px,300px) minmax(450px,1fr);
+    gap: 30px;
+    overflow-x: hidden;
+}
+.customebuttons{
+    padding: 35px 5px;
+}
+.customButton{
+    text-align: center;
+    color: var(--LightBgColor);
+}
+.colorAndButtons{
+    display: grid;
+    grid-template-columns: minmax(265px,290px) minmax(375px,425px);
+    padding: 30px 15px;
+    justify-content: center;
+    gap: 25px;
+}
+.pickerHeading{
+    color: var(--LightBgColor);
+    margin: 0px 0px 10px 10px;
+}
+.customColor{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.picker .react-colorful__interactive{
+    width: 265px;
+    height: auto;
+}
+.picker .react-colorful__hue{
+    width: 265px;
+    height: 18px;
+    margin: 4px 0px 0px 0px;
+    border-radius: 10px;
+}
+.picker .react-colorful__saturation{
+   height: auto;
+   width: 265px;
+   border-radius: 20px;
+}
+.picker  .react-colorful__saturation-pointer{
+    cursor: grab;
+}
+.picker .react-colorful__pointer{
+    cursor: grab;
+} 
+.displayInput{
+    width: 265px;
+    height: 30px;
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor);
+    border-radius: 7px;
+    padding-inline: 10px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    margin: 15px 0px;
+}
+.buttonTypes{
+    display: grid;
+    grid-template-columns: minmax(350px,400px);
+    grid-template-rows: auto;
+    margin-top: 10px;
+}
+
+.buttonSections{
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    outline: none;
+    border: none;
+    min-height: 400px;
+}
+.slick-slide {
+  padding: 0 13px; 
+  transition: all 0.3s ease-in-out;
+}
+
+.slick-prev,
+.slick-next {
+  width: 36px;
+  height: 36px;
+  background: var(--LightBgColor);
+  color: var(--darkTextColor);
+  border-radius: 10px;
+  width: fit-content;
+  padding: 0px 5px 0px 5px;
+  opacity: 1;
+  z-index: 10;
+  transition: all 0.2s ease-in;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.slick-dots{
+    display: none;
+}
+.slick-active{
+    display: none;
+}
+.slick-dots li{
+    display: none;
+}
+
+
+
+.normalButton{
+    width: 100px;
+    height: 35px;
+    align-self: center;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+    margin: 20px 11px 11px 11px; 
+}
+.hoverButton{
+    width: 100px;
+    height: 35px;
+    align-self: center;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin:20px 11px 11px 11px; 
+    transition: all 0.3s ease-out;  
+}
+.errorButton{
+    border: 2px solid red;
+    color: red;
+    width: 100px;
+    height: 35px;
+    align-self: center;
+     margin: 20px 11px 11px 11px;
+    border-radius: 5px;
+}
+.buttonTopHeads{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.disableButton{
+    cursor: no-drop;
+    width: 90px;
+    height: 30px;
+    align-self: center;
+    background-color: #3b3950;
+    border: none;
+    color: var(--darkTextColor);
+    border-radius: 5px; 
+    text-align: center;
+    margin: 20px 11px 11px 11px;
+}
+.rippleButtton{
+    width: 100px;
+    height: 35px;
+    align-self: center;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 20px 11px 11px 11px;
+}
+.neonButton{
+    width: 100px;
+    height: 35px;
+    align-self: center;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 20px 11px 11px 11px; 
+}
+.buttonPreviewCode{
+    background-color: var(--darkTextColor);
+    color: var(--LightBgColor);
+    border-radius: 9px;
+    padding: 10px;
+    font-size: 15px;
+    height: 300px;
+}
+.copyActive{
+    color: #0fd207;
+    margin: 5px;
+}
+.copyInActive{
+    color: var(--LightBgColor);
+    margin: 5px;
+}
+.controllerSwipe{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    bottom: 60px;
+    z-index: 10;
+}
+.previousButton,.nextButton{
+    background-color: var(--LightBgColor);
+    color: var(--darkTextColor);
+    cursor: pointer;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    word-spacing: 2px;
+    outline: none;
+}
+
+@media (max-width:1024px){
+   .buttonMainSection{
+        display: grid;
+        grid-template-columns: minmax(180px,220px) minmax(350px,1fr);
+        gap: 10px;
+   }
+   .colorAndButtons{
+        display: grid;
+        grid-template-columns: minmax(235px,245px) minmax(350px,375px);
+        gap: 10px; 
+   }
+   .buttonTypes{
+        display: grid;
+        grid-template-columns: minmax(325px,350px);
+    }
+    .picker .react-colorful__interactive{
+        width: 225px;
+        height: auto;
+    }
+    .picker .react-colorful__hue{
+        width: 225px;
+        height: 18px;
+    }
+    .picker .react-colorful__saturation{
+        height: auto;
+        width: 225px;
+    }
+    .displayInput{
+        width: 225px;
+    }
+}
+
+@media (max-width:878px){
+     .buttonMainSection{
+        display: grid;
+        grid-template-columns: minmax(225px,250px) minmax(350px,1fr);
+        gap: 10px;
+   }
+   .colorAndButtons{
+        display: grid;
+        grid-template-columns: minmax(385px,425px);
+        gap: 10px; 
+   }
+   .customColor{
+    justify-content: center;
+    align-items: center;
+   }
+   .buttonTypes{
+        display: grid;
+        grid-template-columns: minmax(375px,400px);
+    }
+    .picker .react-colorful__interactive{
+        width: 250px;
+        height: auto;
+    }
+    .picker .react-colorful__hue{
+        width: 250px;
+        height: 18px;
+    }
+    .picker .react-colorful__saturation{
+        height: auto;
+        width: 250px;
+    }
+    .displayInput{
+        width: 250px;
+    }
+    .controllerSwipe{
+        bottom: 0;
+        top: 20px;
+    }
+}
+
+@media (max-width:768px){
+   
+    .buttonMainSection{
+        grid-template-columns: minmax(200px,225px) minmax(300px,375px);
+   }
+   .colorAndButtons{
+        grid-template-columns: minmax(420px,450px);
+   }
+   .buttonTypes{
+    grid-template-columns: minmax(400px,440px);
+   }
+       .picker .react-colorful__interactive{
+        width: 275px;
+    }
+    .picker .react-colorful__hue{
+        width: 275px;
+    }
+    .picker .react-colorful__saturation{
+        width: 275px;
+    }
+    .displayInput{
+        width: 275px;
+    }
+     .buttonTypes{
+        grid-template-columns: minmax(300px,325px);
+        
+        justify-content: center;
+    }
+}
+
+@media (max-width:600px){
+     .buttonSidebar,.buttonsidenavbar{
+        display: none;
+    }
+     .buttonMainSection{
+        grid-template-columns: minmax(280px,300px);
+        justify-content: center;
+    }
+   
+}
+
+@media (max-width:425px){
+    .buttonMainSection{
+        grid-template-columns: minmax(280px,300px);
+    }
+    .buttonMainSection,.buttonTypes{
+        grid-template-columns: minmax(290px,310px);
+        justify-content: center;
+    }
+    /* .picker .react-colorful__interactive,.react-colorful__saturation,
+    .react-colorful__hue{
+        width:  ;
+    } */
+}
+
+
+

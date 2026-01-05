@@ -1,0 +1,199 @@
+:root{
+    --LightBgColor:#0B0729;
+    --darkTextColor:#fff;
+    --primaryBgcards:#F7F7F7;
+    --secondarytextColor:rgb(35, 34, 92);
+}
+
+.formMainSection{
+    display: grid;
+    grid-template-columns: minmax(250px,300px) minmax(350px,1fr);
+    justify-content: flex-start;
+    gap: 20px;
+}
+.wholeFormSection{
+    display: grid;
+    grid-template-columns: minmax(385px,1fr);
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 16px;
+}
+.loginFormSection{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 15px;
+}
+.formHeading{
+    color: var(--LightBgColor);
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; 
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor); 
+    padding: 20px;
+    border-radius: 10px;
+    width: 375px;
+}
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.formInputs{
+    width: 275px;
+    outline: none;
+    border: none;
+    height: 35px;
+    border-radius: 5px;
+    padding-inline: 9px;
+    color: var(--LightBgColor);
+}
+.formInputs::placeholder{
+    color: var(--LightBgColor);
+}
+.formButtons{
+    width: 75px;
+    border: none;
+    outline: none;
+    height: 30px;
+    background-color: var(--LightBgColor);
+    color: var(--darkTextColor);
+    border-radius: 5px;
+    margin: 5px 0px 0px 0px;
+    transition: all 0.3s ease-in-out;
+}
+.formButtons:hover{
+    background-color: var(--secondarytextColor);
+    cursor: pointer;
+}
+.loginPreviewCode{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor);
+    padding: 20px;
+    align-items: center;
+    border-radius: 10px;
+}
+.showButton{
+    align-self: flex-start;
+    border: none;
+    outline: none;
+    color: var(--darkTextColor);
+    background-color: var(--LightBgColor);
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.loginDivisions{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darkTextColor);
+    color: var(--LightBgColor);
+    padding: 0px 10px 10px 0px;
+    border-radius: 5px;
+    height: 400px;
+    overflow-y: auto;
+}
+.divisionDecide{
+    display: flex;
+    gap: 4px;
+}
+.reactButton,.jsButton{
+    background-color: var(--darkTextColor);
+    border-width: 0px 0px 0px 0px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+.reactButton:hover,.jsButton:hover{
+    background-color: var(--primaryBgcards);
+    color: var(--LightBgColor);
+    cursor: pointer;
+}
+.formCopyicon{
+    align-self: flex-start;
+    font-size: 16px;
+    color: rgb(23, 252, 23);
+    margin: 2px 2px 0px 8px;
+    cursor: pointer;
+}
+.formnotCopied{
+    color: var(--LightBgColor);
+    font-size: 16px;
+    align-self: flex-start;
+    margin: 2px 2px 0px 8px;
+    cursor: pointer;
+}
+.formInputsnotDone{
+    color: red;
+    height: 20px;
+}
+.loginreactpre p{
+    font-size: 14px;
+}
+
+.signupSection{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px 0px 0px;
+    align-items: center;
+    align-self: center;
+}
+.signUpPreview{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+@media (max-width:1023px){
+    .formMainSection{
+        grid-template-columns: minmax(225px,250px) minmax(350px,1fr);
+         gap: 15px;
+    }
+    .loginPreviewCode{
+        width: 480px;
+    }
+    .loginDivisions{
+      width: 450px;
+      overflow-x: auto;  
+    }
+}
+@media (max-width:767px){
+    .formSidebar{
+        display: none;
+    }
+    .formMainSection{
+        grid-template-columns: minmax(350px,1fr);
+    }
+}
+
+@media (max-width:600px){
+    .formMainSection{
+        grid-template-columns: minmax(250px,1fr);
+        justify-content: center;
+    }
+    .wholeFormSection{
+    grid-template-columns: minmax(295px,1fr);
+    padding: 40px 5px;
+    }
+    .loginForm{
+        width: 300px;
+    }
+    .loginPreviewCode{
+        width: 300px;
+    }
+    .loginDivisions{
+      width: 286px;
+      overflow-x: auto;  
+    }
+}

@@ -1,0 +1,191 @@
+:root{
+    --lightBgColor:#F7F7F7;
+    --primaryTextColor:#0B0729;
+    --secondaryTextColor:rgb(35, 34, 92);
+    --darkColor:#fff;
+}
+
+.wholeShadow{
+    display: grid;
+    grid-template-columns: minmax(225px,260px) minmax(450px,1fr);
+    gap: 20px;
+}
+.boxShadowMain{
+    display: grid;
+    grid-template-columns: minmax(300px,340px) minmax(235px,240px) minmax(290px,325px);
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 60px 10px;
+}
+.shadowPreview{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 13px;
+    border-radius: 8px;
+    height: fit-content;
+}
+.titleShadow{
+    color: var(--primaryTextColor);
+    align-self: center;
+}
+.previewBox{
+    width: 200px;
+    height: 200px;
+    background-color: var(--darkColor);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    margin: 14px 0px 0px 0px;
+}
+
+.previewShadowCode{
+    margin-top: 9px;
+}
+.shadowCodes{
+    background-color: var(--darkColor);
+    color: var(--primaryTextColor);
+    font-size: 15px;
+    padding: 15px;
+    height: 140px;
+}
+.shadowCodes p{
+    text-wrap: wrap;
+}
+.boxShadowRanges{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    outline: none;
+}
+.boxShadowRanges input{
+    width: 230px;
+}
+.boxShadowColorPicker{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 15px;
+    color: var(--primaryTextColor);
+}
+
+.customInputsShadow{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.pickInput .react-colorful__interactive{
+    width: 250px;
+    height: auto;
+}
+.pickInput .react-colorful__saturation{
+   height: auto;
+   width: 250px;
+   border-radius: 20px;
+}
+.pickInput .react-colorful__hue {
+  height: 18px;
+  margin-top: 7px;
+  border-radius: 10px;
+  width: 250px;
+}
+.pickInput  .react-colorful__saturation-pointer{
+    cursor: grab;
+}
+.pickInput .react-colorful__pointer{
+    cursor: grab;
+}
+.colorDisplayInput{
+    border: none;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 8px;
+    border-radius: 5px;
+    width: 230px;
+    outline: none;
+}
+.rangeInput{
+    width: 230px;
+    outline: none;
+    color: var(--primaryTextColor);
+}
+.shadowLables{
+    color: var(--primaryTextColor);
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.codesCopied{
+    color: #0ad907;
+    margin: 8px 8px 2px 8px;
+    align-self: flex-start;
+    font-size: 18px;
+}
+.codesdidntCopied{
+    color: var(--primaryTextColor);
+    margin: 8px 8px 2px 8px;
+    align-self: flex-start;
+    font-size: 18px;
+}
+
+
+@media (max-width:1178px){
+.wholeShadow{
+    grid-template-columns: minmax(225px,260px) minmax(450px,1fr);
+    gap: 20px;
+}
+.boxShadowMain{
+    grid-template-columns: minmax(300px,340px) minmax(235px,240px);
+    justify-content: center;
+    gap: 25px;
+}
+}
+
+@media (max-width:1024px){
+    .wholeShadow{
+        grid-template-columns: minmax(200px,230px) minmax(400px,1fr);
+        gap: 15px;
+    }
+    .pickInput .react-colorful__interactive{
+    width: 265px;
+    }
+    .pickInput .react-colorful__saturation{
+    height: auto;
+    width: 265px;
+    }
+    .pickInput .react-colorful__hue {
+    width: 265px;
+    }
+}
+
+@media (max-width:828px){
+    .boxShadowMain{
+        grid-template-columns: minmax(300px,400px);
+    }
+}
+@media (max-width:768px){
+     .wholeShadow{
+        grid-template-columns: minmax(210px,250px) minmax(400px,1fr);
+    }
+    .boxShadowMain{
+        grid-template-columns: minmax(300px,390px);
+    }
+}
+@media (max-width:678px){
+    .shadowSidebar{
+        display: none;
+    }
+    .wholeShadow{
+        grid-template-columns: minmax(300px,1fr);
+    }
+}
+
+@media (max-width:600px){
+   .customInputsShadow,.boxShadowColorPicker{
+    margin: 10px;
+   } 
+   
+}

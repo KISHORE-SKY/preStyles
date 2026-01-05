@@ -1,0 +1,33 @@
+.asideNavbar{
+    display:grid;
+    grid-template-columns: minmax(200px,250px);
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 40px;
+    background-color:#fff;
+    color: #0B0729;
+    padding: 35px 25px;
+    height: 100%;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+}
+.sideBarLogo h2{
+    text-align: center;
+    font-size: 33px;
+}
+.sideBarLists{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.sideBarLists li,.sideNavLists{
+    text-decoration: none;
+    list-style: none;
+    color: #0B0729;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: color 0.2s ease;
+}
+.sideNavLists:hover{
+    color: rgb(35, 34, 92);
+    cursor: pointer;
+}

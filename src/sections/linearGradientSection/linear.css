@@ -1,0 +1,154 @@
+:root{
+    --lightBgColor:#F7F7F7;
+    --primaryTextColor:#0B0729;
+    --secondaryTextColor:rgb(35, 34, 92);
+    --darkColor:#fff;
+}
+
+.mainLinearSection{
+    display: grid;
+    grid-template-columns: minmax(250px,275px) minmax(450px,1fr);
+    gap: 25px;
+}
+.customLinearSection{
+    display: grid;
+    grid-template-columns: minmax(275px,300px) minmax(300px,325px) minmax(300px,325px);
+    justify-content: center;
+    padding: 45px 10px;
+    gap: 15px;
+}
+.previewSection{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 10px;
+    border-radius: 8px;
+}
+.previewSection h3{
+    color: var(--primaryTextColor);
+    text-align: center;
+}
+.previewgradientBox{
+    align-self: center;
+}
+.previewgradientBox{
+    width: 225px;
+    height: 225px;
+    border: 1px solid var(--primaryTextColor);
+}
+.customContainer{
+    display: grid;
+    grid-template-columns: minmax(150px,240px);
+    justify-content: center;
+    gap: 0px;
+}
+.angleLinear,.startPositions,.stopPositions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ 
+}
+.angleLinear{
+    height: fit-content;
+}
+.angleInputRange{
+    outline: none;
+    width: 230px;
+}
+.angleLinearInput{
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 8px;
+    border-radius: 5px;
+    width: 230px;
+}
+label{
+    color: var(--primaryTextColor);
+    font-size: 17px;
+    word-spacing: 1.5px;
+}
+.colorLinearInput{
+    outline: none;
+    width: 230px;
+    border: none;
+    height: 28px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    border-radius: 5px;
+    padding-inline: 10px;
+     font-size: 15px;
+     word-spacing: 1.5px;
+}
+.previewCodes{
+    background-color: var(--darkColor);
+    color: var(--primaryTextColor);
+    height: 200px;
+    padding: 8px;
+}
+.previewCodes p{
+    font-size: 15px;
+    text-wrap: wrap;
+}
+.linearCopied{
+    color: #34d73c;
+    margin: 5px;
+}
+.linearNotCopied{
+    color: var(--primaryTextColor);
+    margin: 5px;
+}
+.linearColorPicker{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+@media (max-width:1228px){
+    .customLinearSection{
+    display: grid;
+    grid-template-columns: minmax(275px,300px) minmax(300px,325px);
+    gap: 20px;
+}
+}
+
+@media (max-width:1024px){
+
+    .customLinearSection{
+        column-gap: 10px;
+        grid-template-columns: minmax(325px,350px);
+    }
+    .stopPositions{
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .customContainer{
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width:768px){
+    
+    .mainLinearSection{
+        display: grid;
+        grid-template-columns: minmax(200px,225px) minmax(265px,1fr);
+        gap: 10px;
+      
+    }
+    .customLinearSection{
+        grid-template-columns: minmax(300px,375px);
+    }
+}
+
+@media (max-width:600px){
+    .linearSideBar{
+        display: none;
+    }
+    .mainLinearSection{
+        grid-template-columns: minmax(280px,1fr);
+        justify-content: center;
+    }
+}
+
+
