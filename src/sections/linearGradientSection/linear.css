@@ -12,7 +12,7 @@
 }
 .customLinearSection{
     display: grid;
-    grid-template-columns: minmax(275px,300px) minmax(300px,325px) minmax(300px,325px);
+    grid-template-columns: minmax(275px,325px) minmax(275px,300px) minmax(275px,300px);
     justify-content: center;
     padding: 45px 10px;
     gap: 15px;
@@ -20,7 +20,7 @@
 .previewSection{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     background-color: var(--lightBgColor);
     color: var(--primaryTextColor);
     padding: 10px;
@@ -34,29 +34,50 @@
     align-self: center;
 }
 .previewgradientBox{
-    width: 225px;
-    height: 225px;
-    border: 1px solid var(--primaryTextColor);
+    width: 240px;
+    height: 235px;
+    border-radius: 7px;
 }
-.customContainer{
-    display: grid;
-    grid-template-columns: minmax(150px,240px);
-    justify-content: center;
-    gap: 0px;
-}
-.angleLinear,.startPositions,.stopPositions{
+.previewCopyContainer{
     display: flex;
     flex-direction: column;
     gap: 10px;
- 
+    background-color: var(--darkColor);
+    color: var(--primaryTextColor);
+    overflow: auto;
+    border-radius: 5px;
+}
+.customContainer{
+    display: grid;
+    grid-template-columns: minmax(175px,300px);
+    justify-content: flex-start;
+    gap: 10px;
+}
+.stopPositions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.startPositions{
+    margin: 10px 0px 5px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
 }
 .angleLinear{
-    height: fit-content;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
 }
+
 .angleInputRange{
     outline: none;
-    width: 230px;
-      cursor: ew-resize;
+    width: 260px;
+    cursor: ew-resize;
     accent-color: var(--LightBgColor);
 }
 .angleLinearInput{
@@ -64,7 +85,8 @@
     color: var(--primaryTextColor);
     padding: 8px;
     border-radius: 5px;
-    width: 230px;
+    width: 210px;
+    height: 36px;
 }
 label{
     color: var(--primaryTextColor);
@@ -73,9 +95,9 @@ label{
 }
 .colorLinearInput{
     outline: none;
-    width: 230px;
+    width: 210px;
     border: none;
-    height: 28px;
+    height: 36px;
     background-color: var(--lightBgColor);
     color: var(--primaryTextColor);
     border-radius: 5px;
@@ -83,51 +105,117 @@ label{
      font-size: 15px;
      word-spacing: 1.5px;
 }
-.previewCodes{
-    background-color: var(--darkColor);
-    color: var(--primaryTextColor);
-    height: 200px;
-    padding: 8px;
+.linearDivisions{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
-.previewCodes p{
+.linearDivisionsbutton{
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--LightBgColor);
+    margin-bottom: 5px;
+}
+.linearDivisionsbutton:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+.linearDivisionClicked{
+    background-color: var(--primaryBgcards);
+    opacity: 1;
+    border: none;
+    outline: none;
+    color: var(--LightBgColor);
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.previewCodes {
     font-size: 15px;
-    text-wrap: wrap;
-}
-.linearCopied{
-    color: #34d73c;
-    margin: 5px;
+    padding: 8px;
+    height: 125px;
 }
 .linearNotCopied{
     color: var(--primaryTextColor);
-    margin: 5px;
+    margin: 0px 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.copiedMessageLinear{
+    color: #0B0729;
+    background-color: var(--primaryBgcards);
+    padding: 2px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    font-size: 15px;
+    width: fit-content;
 }
 .linearColorPicker{
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
+.copyMessageSection{
+    height: 20px;
+}
+  .picker-linear .react-colorful__interactive{
+    width: 265px;
+    height: auto;
+    }
+    .picker-linear .react-colorful__hue{
+        width: 265px;
+        height: 18px;
+        margin: 4px 0px 0px 0px;
+        border-radius: 10px;
+    }
+    .picker-linear .react-colorful__saturation{
+    height: auto;
+    width: 265px;
+    border-radius: 20px;
+    }
+    .picker-linear  .react-colorful__saturation-pointer{
+        cursor: grab;
+    }
+    .picker-linear .react-colorful__pointer{
+        cursor: grab;
+    } 
+    .linearRgbCopy{
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
 
 @media (max-width:1228px){
     .customLinearSection{
     display: grid;
     grid-template-columns: minmax(275px,300px) minmax(300px,325px);
     gap: 20px;
-}
+    }
 }
 
 @media (max-width:1024px){
 
     .customLinearSection{
-        column-gap: 10px;
-        grid-template-columns: minmax(325px,350px);
+        gap: 30px;
+        grid-template-columns: minmax(325px,375px);
     }
+    
     .stopPositions{
         justify-content: center;
         align-items: flex-start;
     }
+    .startPositions{
+        margin: 10px 0px 0px 0px;
+    }
     .customContainer{
         justify-content: flex-start;
     }
+
 }
 
 @media (max-width:768px){

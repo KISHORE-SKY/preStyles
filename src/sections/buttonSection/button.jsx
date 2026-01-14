@@ -3,7 +3,7 @@ import SideBar from "../navbar/sidebar"
 import { HexColorPicker,HexColorInput } from "react-colorful";
 //import { LuSendHorizontal } from "react-icons/lu";
 import { LuCopy } from "react-icons/lu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { useRef } from "react";
@@ -27,7 +27,13 @@ function Buttons() {
     height: 30px;
 }`;
 const basicTailwindCode=`
-<button className="h-[30px] w-[90px] border-none">Basic</button>
+<button className="h-[30px] 
+                   w-[90px]
+                   border-0 
+                   bg-[${backgroudPicker}] 
+                   text-[${textColor}] 
+                   outline-none
+                   rounded-[5px]">Basic</button>
 `;
 
 
@@ -40,9 +46,17 @@ const basicTailwindCode=`
     width: 100px;
     height: 35px;
     border-radius: 5px;
+    outline:none;
 }`;
 const errorTailwindCode=`
-<button className="w-[100px] h-[35px]">error</button>
+<button className="w-[100px] 
+                   h-[35px]
+                   text-red-700
+                   rounded-[5px]
+                   border
+                   border-red-700
+                   border-solid
+                   outline-none">error</button>
 `;
 
 const disableHtmlCss=`
@@ -52,14 +66,22 @@ const disableHtmlCss=`
     cursor: no-drop;
     width: 100px;
     height: 35px;
-    background-color: #3b3950;
+    background-color: #0B0729;
     border: none;
     color: #ffffff; 
     border-radius: 5px;
+    opacity:0.5;
 }`;
 const tailwindDisableCode=`
-<button className="cursor:no-drop w-[100px] h-[35px] bg-color 
-text-color-white " disabled>disabled</button>
+<button className="cursor-not-allowed
+                   w-[100px] 
+                   h-[35px] 
+                   bg-[#0B0729] 
+                   opacity-50 
+                   text-white 
+                   border-0 
+                   rounded-[5px]" 
+                   disabled>disabled</button>
 `;
 
 const hoverHtmlCss=`
@@ -80,6 +102,20 @@ const hoverHtmlCss=`
     color:${backgroudPicker};
 }  
 `;
+  const hoverTailwindCode=`
+<button className="bg-[${backgroudPicker}] 
+                   text-[${textColor}]
+                   w-[100px]
+                   h-[35px]
+                   border-0
+                   outline-none
+                   rounded[5px]
+                   transition-all
+                   duration-300
+                   ease-out
+                   hover:bg-[${textColor}]
+                   hover:text-[${backgroudPicker}]">Hover Me</button>
+    `;
 
     const neonBoxShadow=`0 0 10px ${backgroudPicker},0 0 40px ${backgroudPicker},0 0 80px ${backgroudPicker}`;
     const neonHtmlCss=`
@@ -88,7 +124,7 @@ const hoverHtmlCss=`
 .neon{
     background-color:${backgroudPicker};
     color:${textColor};
-    boxShadow:${neonBoxShadow};
+    box-shadow:${neonBoxShadow};
     width: 100px;
     height: 35px;
     border: none;
@@ -97,11 +133,16 @@ const hoverHtmlCss=`
 }`;
 
     const neonTailwindCss=`
-<button className="w-[100px] h-[35px] border-none outline-none">Neon Light</button>
+<button className="w-[100px]
+                   h-[35px] 
+                   border-none 
+                   outline-none
+                   rounded-[5px]
+                   shadow-[${neonBoxShadow}]
+                   bg-[${backgroudPicker}]
+                   text-[${textColor}]">Neon Light</button>
     `;
-    const hoverTailwindCode=`
-<button>Hover Me</button>
-    `;
+  
     const [neonCss,setNeonCss]=useState('is_ON');
     const [neonTailwind,setNeonTailwind]=useState('is_OFF');
 
@@ -196,7 +237,6 @@ const hoverHtmlCss=`
         catch(error){
             console.log(`couldn't copy`);
         }
-
     }
 
     return(
@@ -239,7 +279,7 @@ const hoverHtmlCss=`
                                 <button className="normalButton"
                                 style={{backgroundColor:backgroudPicker,
                                     color:textColor
-                                }}>normal</button>
+                                }}>Basic</button>
                                 </div>
 
                                 <div className="codePreviewButton">
@@ -448,9 +488,7 @@ const hoverHtmlCss=`
                                 onClick={()=>sliderRef.current.slickNext()}>Next...</button>
                             </div>  
                         </section>
-                        
-                    </section>
-                    
+                    </section>    
                 </section>
                 
             </section>

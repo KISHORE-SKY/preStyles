@@ -163,12 +163,13 @@
     width: 90px;
     height: 30px;
     align-self: center;
-    background-color: #3b3950;
+    background-color: var(--LightBgColor);
     border: none;
     color: var(--darkTextColor);
     border-radius: 5px; 
     text-align: center;
     margin: 20px 11px 11px 11px;
+    opacity: 0.5;
 }
 .rippleButtton{
     width: 100px;

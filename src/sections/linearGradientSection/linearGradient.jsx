@@ -25,20 +25,57 @@ function LinearGradients() {
     const endRgb=`rgb(${linearRGBtwo.r},${linearRGBtwo.g},${linearRGBtwo.b})`;
 
     const codesLinear=`.linear{
-    .background:linear-gradient
-    (${angles}deg,${colorPick},${colorPickEnd});
-    background:-webkit-linear-gradient
-    (${angles}deg,${colorPick},${colorPickEnd});
-}`
+    background:-webkit-linear-gradient(${angles}deg,${colorPick},${colorPickEnd});
+    background:linear-gradient(${angles}deg,${colorPick},${colorPickEnd});
+}`;
 
-    const [codeCopied,setCodeCopied]=useState(false);
-    async function copyLinearCodes() {
-        await navigator.clipboard.writeText(codesLinear);
-        setCodeCopied(prev=>prev=false);
-        setTimeout(()=>{
-            setCodeCopied(prev=>prev=true);
-        },700)
+    const linearTailwindCode=`className="bg-[linear-gradient(${angles}deg,${colorPick},${colorPickEnd})]"`;
 
+    const [codeCopied,setCodeCopied]=useState({
+        linearCopied:true,
+        lineartailwindCopied:true
+    });
+
+    async function copyLinearCodes(type,text) {
+        try{
+            await navigator.clipboard.writeText(text);
+            setCodeCopied(prev=>({...prev,[type]:false}))
+            setTimeout(()=>{
+                setCodeCopied(prev=>({...prev,[type]:true}))
+            },800)
+        }
+        catch(error){
+            console.log(`couldn't fetch`);
+        }
+    }
+
+    const [linearCss,setLinearCss]=useState('isON');
+    const [linearTailwind,setLinearTailwind]=useState('isOFF');
+    function linearCssState(){
+        setLinearCss('isON');
+        setLinearTailwind('isOFF');
+    }
+    function linearTailwindState() {
+        setLinearTailwind('isON');
+        setLinearCss('isOFF');
+    }
+
+    const [linearRGBCopy,setLinearRGBCopy]=useState({
+        initialRGB:true,
+        endRGBcolor:true
+    })
+
+    async function linearcolorCopy(type,text){
+        try{
+            await navigator.clipboard.writeText(text);
+            setLinearRGBCopy(prev=>({...prev,[type]:false}))
+            setTimeout(()=>{
+                setLinearRGBCopy(prev=>({...prev,[type]:true}))
+            },800)
+        }
+        catch(error){
+            console.log(`couldn't copy`);
+        }
     }
 
     return(
@@ -50,68 +87,94 @@ function LinearGradients() {
                 </div>
 
                 <section className="customLinearSection">
-
                     <div className="previewSection">
                         <h3>Linear Gradient</h3>
                         <div className="previewgradientBox" 
                         style={{background:linearBg}}>
-                        
                         </div>
 
                         <div className="previewCopyContainer">
-                            <LuCopy className={!codeCopied ? "linearNotCopied" : "linearCopied"}
-                            onClick={copyLinearCodes}/>
+                            <div className="linearDivision">
+                                <button className={linearCss==='isON' ? "linearDivisionClicked" : "linearDivisionsbutton"}
+                                onClick={linearCssState}>CSS</button>
+                                <button className={linearTailwind==='isON' ? "linearDivisionClicked" : "linearDivisionsbutton"}
+                                onClick={linearTailwindState}>Tailwind css</button>
+                            </div>
+                            {linearCss==='isON' && <div>
+                                <div className="copyMessageSection">
+                                    {codeCopied.linearCopied ? <LuCopy className= "linearNotCopied"
+                                    onClick={()=>{copyLinearCodes('linearCopied',codesLinear)}}/> :
+                                    <p className="copiedMessageLinear">Copied</p>}
+                                </div>
 
-                            <pre className="previewCodes">
-                                <p>{codesLinear}</p>
-                            </pre>
+                                <pre  className="previewCodes">
+                                    <p>{codesLinear}</p>
+                                </pre>
+                            </div>}
+
+                            {linearTailwind==='isON' && <div>
+                                <div className="copyMessageSection">
+                                    {codeCopied.lineartailwindCopied ?<LuCopy className="linearNotCopied"
+                                    onClick={()=>{copyLinearCodes('lineartailwindCopied',linearTailwindCode)}}/> : 
+                                    <p className="copiedMessageLinear">Copied</p>}
+                                </div>
+
+                                <pre className="previewCodes">
+                                    <p>{linearTailwindCode}</p>
+                                </pre>
+                            </div>}
                         </div>
 
                     </div>
 
                     <div className="customContainer">
-
+                        <div>
                             <div className="angleLinear">
-                                <label>Angles:</label>
+                                <label>Angle:</label>
                                 <input type="range" className="angleInputRange" min="-360" max="360"
                                 value={angles} onChange={angleInputHandler}/>
                                 <p className="angleLinearInput">{angles}deg</p>
                             </div>
-
                             <div className="startPositions">
                                 <label>Initial Color:</label>
-                                <HexColorPicker className="picker" color={colorPick} onChange={setColorPick}/>
+                                <HexColorPicker className="picker-linear" color={colorPick} onChange={setColorPick}/>
 
-                                 <label>Hex:</label>
+                                 <label>Initial Hex:</label>
                                 <HexColorInput className="colorLinearInput" color={colorPick} onChange={setColorPick}
                                 prefixed readOnly/>
-                            </div>
+
+                                <label>Initial RGB:</label>
+                                <div className="linearRgbCopy">
+                                    <p className="angleLinearInput">{startRgb}</p>
+                                    <div className="copyMessageSection">
+                                    {linearRGBCopy.initialRGB ? <LuCopy className= "linearNotCopied"
+                                        onClick={()=>{linearcolorCopy('initialRGB',startRgb)}}/> :
+                                        <p className="copiedMessageLinear">Copied</p>}
+                                    </div>
+                                </div>
                             
-                        
+                            </div>
+                        </div>
                     </div>
+
                     <div className="stopPositions">
                         <label>End Color:</label>
-                        <HexColorPicker className="picker" color={colorPickEnd} onChange={setColorPickEnd}/>
+                        <HexColorPicker className="picker-linear" color={colorPickEnd} onChange={setColorPickEnd}/>
 
-                        <label>Hex:</label>
+                        <label>End HEX:</label>
                         <HexColorInput className="colorLinearInput" color={colorPickEnd} onChange={setColorPickEnd}
                         prefixed readOnly/>
-
-                        
-                        
-                        <div className="linearColorPicker">
-
-                            <div>
-                                <label>Initial Color:</label>
-                                <p className="angleLinearInput">{startRgb}</p>
+                         
+                        <label>End RGB:</label>
+                        <div className="linearRgbCopy">
+                            <p className="angleLinearInput">{endRgb}</p>
+                            <div className="copyMessageSection">
+                                {linearRGBCopy.endRGBcolor ? <LuCopy className="linearNotCopied" 
+                                onClick={()=>{linearcolorCopy('endRGBcolor',endRgb)}}/> : 
+                                <p className="copiedMessageLinear">Copied</p>}
                             </div>
-
-                            <div>
-                                <label>End Color:</label>
-                                <p className="angleLinearInput">{endRgb}</p>
-                            </div>
-                            
-                        </div>
+                         </div>
+                        
                     </div>
                     
                 </section>

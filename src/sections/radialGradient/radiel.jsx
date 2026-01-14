@@ -18,17 +18,41 @@ function RadielGradient() {
     const bgRadialGradient=`radial-gradient(${radialAngle},${radialPicker},${radialEndPicker})`
 
     const radialGradientCode=`.radialBg{
-    background:radial-gradient(${radialAngle},${radialPicker},${radialEndPicker});
-    background:-webkit-radial-gradient(${radialAngle},${radialPicker},${radialEndPicker});
+        background:-webkit-radial-gradient(${radialAngle},${radialPicker},${radialEndPicker});
+        background:radial-gradient(${radialAngle},${radialPicker},${radialEndPicker});
     }`;
 
-    const [radialCopied,setRadialCopied]=useState(false);
-    async function radialCopyHandler() {
-        await navigator.clipboard.writeText(radialGradientCode);
-        setRadialCopied(prev=>prev=false);
-        setTimeout(()=>{
-            setRadialCopied(prev=>prev=true);
-        },700)
+    const radialTailwindCode=`
+<div className="w-[100px] h-[75px] bg-[radial-gradient(${radialAngle},${radialPicker},${radialEndPicker})]"></div>`
+
+    const [radialCopied,setRadialCopied]=useState({
+        radialCss:true,
+        radialTailwind:true
+    });
+
+    async function radialCopyHandler(type,text) {
+        try{
+            await navigator.clipboard.writeText(text);
+            setRadialCopied(prev=>({...prev,[type]:false}));
+            setTimeout(()=>{
+                setRadialCopied(prev=>({...prev,[type]:true}));
+            },800)
+        }
+        catch(error){
+            console.log(`couldn't copy `);
+        }
+    }
+
+    const [cssRadialState,setCssRadialState]=useState('isOpen');
+    const [tailwindRadialState,setTailwindRadialState]=useState('isClose');
+
+    function pureCssHandler(){
+        setCssRadialState('isOpen');
+        setTailwindRadialState('isClose');
+    }
+    function tailwindHandler() {
+        setTailwindRadialState('isOpen');
+        setCssRadialState('isClose');
     }
     return(
         <>
@@ -45,12 +69,35 @@ function RadielGradient() {
                         <div className="previewRadialBox"
                         style={{background:bgRadialGradient}}></div>
                         <div className="previewRadialCodes">
-                            <LuCopy onClick={radialCopyHandler}
-                            className={!radialCopied ? "radialnotCodeCopied" : "radialCodeCopied"}/>
-                            <pre className="RadialPreviewCodes">
-                                <p>{radialGradientCode}</p>
-                            </pre>
+                            <div className="radialDivisons">
+                                <button onClick={pureCssHandler}
+                                className={cssRadialState==='isOpen' ? "radialDivisionClicked" : "radialDivisionsbutton"}>CSS</button>
+                                <button onClick={tailwindHandler}
+                                className={tailwindRadialState==='isOpen' ? "radialDivisionClicked" : "radialDivisionsbutton"}>Tailwind Css</button>
+                            </div>
+                            {cssRadialState==='isOpen' && <div>
+                                <div className="messageSection">
+                                    {radialCopied.radialCss ? <LuCopy onClick={()=>{radialCopyHandler('radialCss',radialGradientCode)}}
+                                    className="radialNotCopied"/> :
+                                    <p className="copiedMessageradial">Copied</p>}
+                                </div>
+                                <pre className="RadialPreviewCodes">
+                                    <p>{radialGradientCode}</p>
+                                </pre>
+                            </div>}
+                            {tailwindRadialState==='isOpen' && <div>
+                                <div className="messageSection">
+                                    {radialCopied.radialTailwind ? <LuCopy onClick={()=>{radialCopyHandler('radialTailwind',radialTailwindCode)}}
+                                    className="radialNotCopied"/> :
+                                    <p className="copiedMessageradial">Copied</p>}
+                                </div>
+                                <pre className="RadialPreviewCodes">
+                                    <p>{radialTailwindCode}</p>
+                                </pre>
+                            </div>}
                         </div>
+
+                        
                     </div>
                 </section>
 
@@ -70,7 +117,8 @@ function RadielGradient() {
                     <div className="startingColorPicker">
                         <label className="pickerLabels">Initial Color:</label>
                         <HexColorPicker color={radialPicker} onChange={setRadialPicker} className="picker"/>
-
+                        
+                        <label>Initial HEX:</label>
                         <HexColorInput className="colorDisplayRadial" 
                         color={radialPicker} onChange={setRadialPicker}prefixed readOnly/>
                     </div>
@@ -80,13 +128,14 @@ function RadielGradient() {
                     <label className="pickerLabels">End Color:</label>
                     <HexColorPicker color={radialEndPicker} onChange={setRadialEndPicker} className="picker" />
 
+                    <label>End HEX:</label>
                     <HexColorInput className="colorDisplayRadial"
                     color={radialEndPicker} onChange={setRadialEndPicker} prefixed readOnly/>
                 </section>
                 </section>
             </section>
         </>
-    )
+    );
 }
 
 export default RadielGradient;

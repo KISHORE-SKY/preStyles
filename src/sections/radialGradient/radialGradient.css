@@ -31,9 +31,8 @@
     text-align: center;
 }
 .previewRadialBox{
-    width: 200px;
-    height: 200px;
-    border: 1px solid var(--primaryTextColor);
+    width: 250px;
+    height: 230px;
     border-radius: 5px;
     align-self: center;
     margin-top: 14px;
@@ -58,8 +57,8 @@
     font-size: 17px;
 }
 .colorDisplayRadial{
-    height: 30px;
-    width: 215px;
+    height: 36px;
+    width: 225px;
     padding-inline: 10px;
     border-radius: 8px;
     border: none;
@@ -100,23 +99,67 @@ select option:checked{
     background-color: var(--primaryTextColor);
     color: var(--darkColor);
 }
-.RadialPreviewCodes{
+.previewRadialCodes{
     background-color: var(--darkColor);
     color: var(--primaryTextColor);
     text-wrap: wrap;
-    padding: 9px;
+    padding: 0px 9px 9px 0px;
     font-size: 15px;
-    border-radius: 7px;
+    border-radius: 5px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 200px;
 }
-.radialCodeCopied{
-    color: #29c522;
-    margin: 5px 5px 0px 0px;
+.radialDivisons{
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
-.radialnotCodeCopied{
+.radialNotCopied{
     color: var(--primaryTextColor);
-    margin: 5px 5px 0px 0px;
+    margin: 0px 5px;
+    font-size: 15px;
+    cursor: pointer;
 }
-
+.radialDivisionsbutton{
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--LightBgColor);
+    margin-bottom: 5px;
+}
+.radialDivisionsbutton:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+.radialDivisionClicked{
+    background-color: var(--primaryBgcards);
+    opacity: 1;
+    border: none;
+    outline: none;
+    color: var(--LightBgColor);
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.copiedMessageradial{
+    color: #0B0729;
+    background-color: var(--primaryBgcards);
+    padding: 2px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    font-size: 15px;
+    width: fit-content;
+}
+.messageSection{
+    height: 20px;
+}
 @media (max-width:1179px){
 .mainradialSection{
     grid-template-columns: minmax(225px,300px) minmax(225px,285px);

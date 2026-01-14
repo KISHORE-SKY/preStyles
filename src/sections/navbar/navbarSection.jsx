@@ -64,7 +64,7 @@ function Navbar() {
 
                         <div className="dropDownBox" onClick={CatogiriesHandler}>
 
-                            <p style={{color:'#0B0729'}}>Categories </p>
+                            <p style={{color:'#0B0729'}}>Tools </p>
 
                             <FaChevronDown 
                             style={{transform: openList ? 'rotate(180deg)' : 'rotate(0deg)',
