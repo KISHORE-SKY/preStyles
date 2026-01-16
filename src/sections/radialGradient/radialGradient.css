@@ -58,13 +58,21 @@
 }
 .colorDisplayRadial{
     height: 36px;
-    width: 225px;
+    width: 215px;
     padding-inline: 10px;
     border-radius: 8px;
     border: none;
     outline: none;
     background-color: var(--lightBgColor);
     color: var(--primaryTextColor);
+}
+.colorRadialRGB{
+    height: 36px;
+    width: 215px;
+    border-radius: 8px;
+    background-color: var(--lightBgColor);
+    color: var(--primaryTextColor);
+    padding: 7px;
 }
 .radialRangeDisplay{
     width: 215px;
@@ -77,6 +85,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.radialRGBcopy{
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 .radialSize{
     width: 215px;

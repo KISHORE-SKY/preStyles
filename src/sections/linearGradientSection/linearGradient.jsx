@@ -29,7 +29,7 @@ function LinearGradients() {
     background:linear-gradient(${angles}deg,${colorPick},${colorPickEnd});
 }`;
 
-    const linearTailwindCode=`className="bg-[linear-gradient(${angles}deg,${colorPick},${colorPickEnd})]"`;
+    const linearTailwindCode=`<div className="bg-[linear-gradient(${angles}deg,${colorPick},${colorPickEnd})]></div>"`;
 
     const [codeCopied,setCodeCopied]=useState({
         linearCopied:true,
