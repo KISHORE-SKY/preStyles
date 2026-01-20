@@ -7,7 +7,7 @@
 
 .formMainSection{
     display: grid;
-    grid-template-columns: minmax(250px,300px) minmax(350px,1fr);
+    grid-template-columns: minmax(250px,275px) minmax(350px,1fr);
     justify-content: flex-start;
     gap: 20px;
 }

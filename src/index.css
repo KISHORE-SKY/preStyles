@@ -108,7 +108,7 @@
     width: 88%;
 }
 .linkDrop:hover{
-    color:royalblue;
+    opacity: 0.5;
 }
 .searchBar{
     padding: 5px;

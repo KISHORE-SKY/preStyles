@@ -7,7 +7,7 @@
 
 .wholeShadow{
     display: grid;
-    grid-template-columns: minmax(225px,260px) minmax(450px,1fr);
+    grid-template-columns: minmax(250px,275px) minmax(450px,1fr);
     gap: 20px;
 }
 .boxShadowMain{

@@ -1,7 +1,12 @@
+import { useState } from "react";
 import {Link} from "react-router-dom"
 
+
 function SideBar() {
-   
+//    const [sidebarClicked,setSidebarClicked]=useState('notClicked');
+//    function toolsActivated(){
+//     setSidebarClicked('yesClicked');
+//    }
     return(
         <>
             <aside className="asideNavbar">
@@ -9,7 +14,7 @@ function SideBar() {
                     <h2>Style Tools</h2>
                 </div>
                 <ul className="sideBarLists">
-                    <li><Link to="/color" className="sideNavLists">Color Picker</Link></li>
+                    <li><Link to="/color"  className= "sideNavLists">Color Picker</Link></li>
                     <li><Link to="/button"  className="sideNavLists">Button</Link></li>
                     <li><Link to="/linearGradient" className="sideNavLists">Linear-Gradient</Link></li>
                     <li><Link to="/radiel" className="sideNavLists">Radial-Gradient</Link></li>

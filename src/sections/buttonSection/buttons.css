@@ -7,7 +7,7 @@
 
 .buttonMainSection{
     display: grid;
-    grid-template-columns: minmax(250px,300px) minmax(450px,1fr);
+    grid-template-columns: minmax(250px,275px) minmax(450px,1fr);
     gap: 30px;
     overflow-x: hidden;
 }

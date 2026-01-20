@@ -9,7 +9,7 @@
     color: var(--primaryTextColor);
     padding: 0px;
     display: grid;
-    grid-template-columns: minmax(200px,250px) minmax(300px,1fr);
+    grid-template-columns: minmax(250px,275px) minmax(300px,1fr);
     gap: 15px;
 }
 .colorSection{

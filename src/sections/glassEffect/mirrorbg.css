@@ -7,7 +7,7 @@
 
 .glassWholeSection{
     display: grid;
-    grid-template-columns: minmax(225px,275px) minmax(350px,1fr);
+    grid-template-columns: minmax(250px,275px) minmax(350px,1fr);
     gap: 25px;
 }
 .glassPreviewCustomize{

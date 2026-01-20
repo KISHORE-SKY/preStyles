@@ -31,3 +31,12 @@
     opacity: 0.5;
     cursor: pointer;
 }
+.itsClicked{
+    text-decoration: none;
+    list-style: none;
+    color: #0B0729;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: color 0.2s ease;
+    text-decoration: solid;
+}
