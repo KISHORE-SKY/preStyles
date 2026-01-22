@@ -1,3 +1,10 @@
+:root{
+    --lightBgColor:#F7F7F7;
+    --primaryTextColor:#0B0729;
+    --secondaryTextColor:rgb(35, 34, 92);
+    --darkColor:#fff;
+}
+
 *{
     margin: 0px;
     padding: 0px;

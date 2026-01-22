@@ -19,7 +19,6 @@ function Navbar() {
                     setOpenList(false);
                 }
             }
-
             document.addEventListener('mousedown',catogiriesNavBar);
 
             return ()=>{

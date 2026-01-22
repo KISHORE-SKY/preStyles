@@ -17,10 +17,10 @@ function FormComponents() {
 
     function loginShowPassword(){
         if(typeInput==="password"){
-           setType('text')
+           setType('text');
         }
         else{
-          setType('password')
+          setType('password');
         }
     }
 
@@ -58,10 +58,12 @@ function FormComponents() {
     }
 
     const [loginCopied,setLoginCopied]=useState({
-        reactCopied:false,
-        vennilaCopied:false,
-        signupreact:false,
-        signupVennila:false
+        reactCopied:true,
+        vennilaCopied:true,
+        signupreact:true,
+        signupVennila:true,
+        loginTailwindCopy:true,
+        signupTailwindCopy:true
     });
     async function copyLoginHandler(type,text) {
         try{
@@ -70,33 +72,12 @@ function FormComponents() {
             setLoginCopied(prev=>({...prev,[type]:false}));
             setTimeout(()=>{
                 setLoginCopied(prev=>({...prev,[type]:true}));
-            },700)
+            },800)
         }
         catch(error){
             console.log(`couldn't fetch`);
         }
     }
-
-    const [loginReactDivision,setLoginReactDivision]=useState('reactLogin');
-    const [signupReactDivision,setSignupReactDivision]=useState('reactSignup');
-
-    function reactLogincodeHandler() {
-        if(loginReactDivision==='reactLogin'){
-            setLoginReactDivision('jsLogin'); 
-        }
-        else{
-            setLoginReactDivision('reactLogin');
-        }
-    }
-    function signupreactCondition() {
-        if(signupReactDivision==='reactSignup'){
-            setSignupReactDivision('signupJs');
-        }
-        else{
-            setSignupReactDivision('reactSignup');
-        }
-    }
-    
 
     const loginPreCodesReact=`
 function Login(){
@@ -109,10 +90,10 @@ function Login(){
 
     function loginShowPassword(){
         if(typeInput==="password"){
-           setType('text')
+           setType('text');
         }
         else{
-          setType('password')
+          setType('password');
         }
     }
 
@@ -228,7 +209,7 @@ export default Login;
     transition: all 0.3s ease-in-out;
 }
 .formButtons:hover{
-    background-color: rgb(35, 34, 92);
+    opacity: 0.9;
     cursor: pointer;
 }
 `;
@@ -416,10 +397,7 @@ function loginValidation(event){
         confirmPassword:''
     });
     const signupEmailPattern=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-;
     const signupusernamePattern=/^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{1,18}[a-zA-Z0-9])$/;
-
-
 
     function signupUsernameHandler(event){
         setSignupUsername(event.target.value);
@@ -506,7 +484,6 @@ function loginValidation(event){
 
 
     const signupReactCode=`
-
 function SignupForm(){
     const [signUpusername,setSignupUsername]=useState('');
     const [signupPassword,setSignupPassword]=useState('');
@@ -704,7 +681,7 @@ export default SignupForm;
     transition: all 0.3s ease-in-out;
 }
 .formButtons:hover{
-    background-color: rgb(35, 34, 92);
+    opacity: 0.9;
     cursor: pointer;
 }
 .formInputsnotDone{
@@ -718,7 +695,7 @@ export default SignupForm;
     margin-right: 50px;
 }
 .conditions input{
-    accent-color: var(--LightBgColor);
+    accent-color: #0B0729;
     cursor: pointer;
 }
 `;
@@ -953,14 +930,303 @@ const signupjscode=`
 </script>
 </html>
 `;
+
+const loginTailwindCodes=`
+function Login(){
+    const [loginUsername,setLoginUsername]=useState('');
+    const [loginPassword,setLoginPassword]=useState('');
+    const [loginErrorUser,setLoginErrorUser]=useState('');
+    const [loginErrorPassword,setLoginErrorPassword]=useState('');
+    const [typeInput,setType]=useState('password');
+    const loginnamePattern=/^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{1,18}[a-zA-Z0-9])$/;
+
+    function loginShowPassword(){
+        if(typeInput==="password"){
+           setType('text');
+        }
+        else{
+          setType('password');
+        }
+    }
+
+    function loginUsernameHandler(event){
+        setLoginUsername(event.target.value);
+    }
+    function loginUserNameCheck() {
+        if(loginUsername===""){
+            setLoginErrorUser('please enter username');
+        }
+        else if(!loginnamePattern.test(loginUsername)){
+            setLoginErrorUser('please enter valid username');
+        }
+        else{
+            setLoginErrorUser('');
+        }
+    }
+
+    function loginPasswordHandler(event){
+        setLoginPassword(event.target.value);
+    }
+    function loginPasswordCheck() {
+        if(loginPassword===""){
+            setLoginErrorPassword('please enter password');
+        }
+        else{
+            setLoginErrorPassword('');
+        }
+    }
+
+    function LoginHandler(event){
+        event.preventDefault();
+        loginUserNameCheck();
+        loginPasswordCheck();
+    }
+
+    return(
+        <>
+            <form className="flex flex-col gap-[10px] align-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
+                <div className="flex flex-col gap-[4px]">                                
+                <label htmlFor="logusername">Username:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none">
+                        <input type="text" placeholder="username"
+                        value={loginUsername}
+                        onChange={loginUsernameHandler} id="logusername"/>
+                        <RiUserFill />
+                    </div>
+                    <p className="text-red-600 h-[20px]"
+                    >{loginErrorUser}</p>
+                </div>
+
+                <div className="flex flex-col gap-[10px] align-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
+                    <label htmlFor="logPassword">Password:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none">
+                        <input type={typeInput} placeholder="password"
+                        value={loginPassword}
+                        onChange={loginPasswordHandler} id="logPassword"/>
+                        <IoEyeSharp onClick={loginShowPassword}/>
+                    </div>
+                    <p className="text-red-600 h-[20px]">{loginErrorPassword}</p>
+                </div>
+                            
+                <div>
+                    <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] text-[#fff] rounded-[5px] 
+                    transition duration-300 ease-in-out hover:opacity-[0.9] cursor-pointer" 
+                    onClick={LoginHandler}>Login</button>
+                </div>
+            </form>
+        </>
+    );
+}
+export default Login;  
+
+`;
+const signupTailwindCodes=`
+function SignupForm(){
+    const [signUpusername,setSignupUsername]=useState('');
+    const [signupPassword,setSignupPassword]=useState('');
+    const [signupEmail,setSignupEmail]=useState('');
+    const [confirmSignup,setConfirmSignUp]=useState('');
+    const [signupErrorMessage,setSignupErrorMessage]=useState({
+        username:'',
+        email:'',
+        password:'',
+        confirmPassword:''
+    });
+    const signupEmailPattern=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const signupusernamePattern=/^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{1,18}[a-zA-Z0-9])$/;
+
+    function signupUsernameHandler(event){
+        setSignupUsername(event.target.value);
+    }
+   
+    function signupusernameCheck() {
+        if(signUpusername===""){
+            setSignupErrorMessage(prev=>({
+                ...prev,username:'please Enter username'}));
+        }
+        else if(!signupusernamePattern.test(signUpusername)){
+            setSignupErrorMessage(prev=>({
+                ...prev,username:'Caps,nums,sml,_,-  only allowed'}));
+        }
+        else{
+            setSignupErrorMessage(prev=>({
+                ...prev,username:''}));
+        }
+    }
+
+    function signupEmailHandler(event){
+        setSignupEmail(event.target.value);
+    }
+    function signUpemailCheck(){
+        if(signupEmail===""){
+            setSignupErrorMessage(prev=>({
+                ...prev,email:'please enter email'}));
+        }
+        else if(!signupEmailPattern.test(signupEmail)){
+            setSignupErrorMessage(prev=>({
+                ...prev,email:'enter valid email'}));
+        }
+        else{
+            setSignupErrorMessage(prev=>({
+                ...prev,email:''}));
+        }
+    }
+
+    function signupPasswordHandler(event){
+        setSignupPassword(event.target.value);
+    }
+    function signupPasswordValid(){
+        if(signupPassword===""){
+            setSignupErrorMessage(prev=>({
+                ...prev,password:'please enter password'}));
+        }
+        else if(signupPassword.length<8){
+            setSignupErrorMessage(prev=>({
+                ...prev,password:'your password is weak'}));
+        }
+        else{
+            setSignupErrorMessage(prev=>({
+                ...prev,password:''}));
+        }
+    }
+
+    function signupConfirmHandle(event){
+        setConfirmSignUp(event.target.value);
+    }
+    function confirmPasswordValid() {
+        if(confirmSignup===""){
+            setSignupErrorMessage(prev=>({
+                ...prev,confirmPassword:'please render to confirm password'}));
+        }
+        else if(confirmSignup !== signupPassword){
+             setSignupErrorMessage(prev=>({
+                ...prev,confirmPassword:'password is did not match'}));
+        }
+        else{
+             setSignupErrorMessage(prev=>({
+                ...prev,confirmPassword:''}));
+        }
+    }
+
+    function SignUpValidation(event) {
+        event.preventDefault();
+     
+        signupusernameCheck();
+        signUpemailCheck();
+        signupPasswordValid();
+        confirmPasswordValid();
+    }
+
+    return(
+        <>
+            <form className="flex flex-col gap-[10px] align-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
+                <div className="flex flex-col gap-[4px]">
+                    <label htmlFor="name">Username:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none">
+                        <input type="text" placeholder="Username"  
+                        id="name" value={signUpusername} onChange={signupUsernameHandler}/>
+                        <RiUserFill />
+                    </div>
+                    <p className="text-red-600 h-[20px]">{signupErrorMessage.username}</p>
+                </div>
+
+                <div className="flex flex-col gap-[4px]">
+                    <label htmlFor="email">Email:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none">
+                        <input type="email" placeholder="Email"  
+                        id="email" value={signupEmail} onChange={signupEmailHandler}/>
+                        <MdEmail />
+                    </div>
+                    <p className="text-red-600 h-[20px]">{signupErrorMessage.email}</p>
+                </div>
+                            
+                <div className="flex flex-col gap-[4px]">
+                    <label htmlFor="passwords">Password:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none" >
+                        <input type="password" placeholder="Password" 
+                        id="passwords" value={signupPassword} onChange={signupPasswordHandler}/>
+                        <IoEyeSharp />
+                    </div>
+                    <p className="text-red-600 h-[20px]">{signupErrorMessage.password}</p>
+                </div>
+
+                <div className="flex flex-col gap-[4px]">
+                    <label htmlFor="confirm">Confirm Password:</label>
+                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-[9px] 
+                    placeholder-[#0B0729] border-none outline-none" >
+                        <input type="password" placeholder="Confirm password" 
+                        id="confirm" value={confirmSignup} onChange={signupConfirmHandle}/>
+                        <IoEyeSharp />
+                    </div>
+                    <p className="text-red-600 h-[20px]">{signupErrorMessage.confirmPassword}</p>
+                </div>
+
+                <div className="flex justify-start align-center mr-[50px]">
+                    <input type="checkbox" name="termsCondition" className="cursor-pointer accent-[#0B0729]" required/>
+                    <label htmlFor="termsCondition">
+                        I agree to the Terms & Privacy Policy
+                    </label>
+                </div>
+
+                <div>
+                    <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] 
+                    text-[#fff] rounded-[5px] transition duration-300 ease-in-out hover:opacity-[0.9] cursor-pointer" 
+		            onClick={SignUpValidation}>Sign Up</button>
+                </div>
+                            
+            </form>  
+        </>
+    );
+}
+export default SignupForm;
+
+`;
     
 
-    const [buttonClicked,setButtonClicked]=useState({
-        loginreact:true,
-        loginJs:false,
-        signupreact:true,
-        signupJs:false
-    })
+   
+    const [loginReactDivision,setLoginReactDivision]=useState('yesOpen');
+    const [signupReactDivision,setSignupReactDivision]=useState('yesOpen');
+    const [loginJs,setLoginJs]=useState('noOpen');
+    const [signupJsState,setSignupJsState]=useState('noOpen');
+    const [loginTailwind,setLoginTailwind]=useState('noOpen');
+    const [signupTailwind,setSignupTailwind]=useState('noOpen');
+
+    function reactLogincodeHandler() {
+        setLoginReactDivision('yesOpen');
+        setLoginJs('noOpen');
+        setLoginTailwind('noOpen')
+    }
+    function signupreactCondition() {
+       setSignupReactDivision('yesOpen')
+       setSignupJsState('noOpen')
+       setSignupTailwind('noOpen');
+    }
+    function loginJsHandler() {
+        setLoginJs('yesOpen')
+        setLoginReactDivision('noOpen')
+        setLoginTailwind('noOpen')
+    }
+    function signupJsHandler() {
+        setSignupJsState('yesOpen')
+        setSignupReactDivision('noOpen')
+        setSignupTailwind('noOpen')
+    }
+    function loginTailwindHandler(){
+        setLoginTailwind('yesOpen')
+        setLoginJs('noOpen')
+        setLoginReactDivision('noOpen')
+    }
+    function signupTailwindHandler() {
+        setSignupTailwind('yesOpen')
+        setSignupReactDivision('noOpen')
+        setSignupJsState('noOpen')
+    }
+
     return(
         <>
             <section className="formMainSection">
@@ -996,10 +1262,7 @@ const signupjscode=`
                                     onChange={loginPasswordHandler} id="logPassword"/>
                                     <IoEyeSharp onClick={loginShowPassword}/>
                                 </div>
-                                
-
                                 <p className="formInputsnotDone">{loginErrorPassword}</p>
-                                {/* className={isloginDone.password ? "formInputsDone" : "formInputsnotDone" } */}
                             </div>
                             
                             <div>
@@ -1012,15 +1275,19 @@ const signupjscode=`
                 
                             <div className="loginDivisions">
                                 <div className="divisionDecide">
-                                    <button className={loginReactDivision==='reactLogin' ? "buttonClicked" : "reactButton"} onClick={reactLogincodeHandler}>React js</button>
-                                    <button className={loginReactDivision==='jsLogin' ? "buttonClicked" : "jsButton"} onClick={reactLogincodeHandler}>javaScript</button>
+                                    <button className={loginReactDivision==='yesOpen' ? "buttonClicked" : "buttonnotClicked"} 
+                                    onClick={reactLogincodeHandler}>React js</button>
+                                    <button className={loginJs==='yesOpen' ? "buttonClicked" : "buttonnotClicked"}
+                                    onClick={loginJsHandler}>javaScript</button>
+                                    <button className={loginTailwind==='yesOpen' ? "buttonClicked" : "buttonnotClicked"}
+                                    onClick={loginTailwindHandler}>Tailwind Css</button>
                                 </div>
 
-                                {loginReactDivision==='reactLogin' && <div className="reactJsLogin">
-                                    <div className="copiedMessage">
-                                        <LuCopy className={!loginCopied.reactCopied ? "formnotCopied" :  "formCopyicon"}
-                                        onClick={()=>{copyLoginHandler('reactCopied',loginPreCodesReact)}}/>
-                                        {loginCopied.reactCopied && <p>Copied</p>}
+                                {loginReactDivision==='yesOpen' && <div className="reactJsLogin">
+                                    <div className="copyMessageSection">
+                                        {loginCopied.reactCopied ? <LuCopy className= "formnotCopied" 
+                                        onClick={()=>{copyLoginHandler('reactCopied',loginPreCodesReact)}}/> :
+                                       <p className="codeCopied">Copied</p>}
                                     </div>
 
                                     <pre className="loginreactpre">
@@ -1028,11 +1295,11 @@ const signupjscode=`
                                     </pre>
                                 </div>}
  
-                                {loginReactDivision==='jsLogin' && <div className="vannilaJsLoginCode">
-                                    <div className="copiedMessage">
-                                        <LuCopy className={!loginCopied.vennilaCopied ? "formnotCopied" :  "formCopyicon"}
-                                        onClick={()=>{copyLoginHandler('vennilaCopied',vennilaLoginCode)}}/>
-                                        {loginCopied.vennilaCopied && <p>Copied</p>}
+                                {loginJs==='yesOpen' && <div className="vannilaJsLoginCode">
+                                    <div className="copyMessageSection">
+                                        {loginCopied.vennilaCopied ? <LuCopy className="formnotCopied"
+                                        onClick={()=>{copyLoginHandler('vennilaCopied',vennilaLoginCode)}}/> :
+                                        <p className="codeCopied">Copied</p>}
                                     </div>
 
                                     <pre className="loginreactpre">
@@ -1040,10 +1307,20 @@ const signupjscode=`
                                     </pre>
                                 </div>}
 
+                                {loginTailwind==='yesOpen' && <div className="vannilaJsLoginCode">
+                                    <div className="copyMessageSection">
+                                        {loginCopied.loginTailwindCopy ? <LuCopy className="formnotCopied"
+                                        onClick={()=>{copyLoginHandler('loginTailwindCopy',loginTailwindCodes)}}/> :
+                                        <p className="codeCopied">Copied</p>}
+                                    </div>
+
+                                    <pre className="loginreactpre">
+                                        <p>{loginTailwindCodes}</p>
+                                    </pre>
+                                </div>}
+
                             </div>
-
                         </div>
-
                     </div>
 
                     <div className="signupSection">
@@ -1113,38 +1390,52 @@ const signupjscode=`
                                 <div className="loginDivisions">
 
                                     <div className="divisionDecide">
-                                        <button className={signupReactDivision==='reactSignup' ? "buttonClicked" : "reactButton"} onClick={signupreactCondition}>React js</button>
-                                        <button className={signupReactDivision==='signupJs' ? "buttonClicked" : "jsButton"} onClick={signupreactCondition}>javaScript</button>
+                                        <button className={signupReactDivision==='yesOpen' ? "buttonClicked" : "buttonnotClicked"} 
+                                        onClick={signupreactCondition}>React js</button>
+                                        <button className={signupJsState==='yesOpen' ? "buttonClicked" : "buttonnotClicked"} 
+                                        onClick={signupJsHandler}>javaScript</button>
+                                        <button className={signupTailwind==='yesOpen' ? "buttonClicked" : "buttonnotClicked"}
+                                        onClick={signupTailwindHandler}>Tailwind Css</button>
                                     </div>
 
-                                {signupReactDivision==='reactSignup' && <div className="signUpreactPreview">
+                                {signupReactDivision==='yesOpen' && <div className="signUpreactPreview">
                                     <div className="copiedMessage">
-                                        <LuCopy onClick={()=>{copyLoginHandler('signupreact',signupReactCode)}}
-                                        className={!loginCopied.signupreact ? "formnotCopied" : "formCopyicon"}/>
-                                            {loginCopied.signupreact && <p>Copied</p>}
+                                        {loginCopied.signupreact ? <LuCopy onClick={()=>{copyLoginHandler('signupreact',signupReactCode)}}
+                                        className="formnotCopied"/> :
+                                        <p className="codeCopied">Copied</p>}
                                     </div>
 
                                     <pre className="loginreactpre">
                                         <p>{signupReactCode}</p>
                                     </pre>
-                                    </div>}
+                                </div>}
 
-                                    {signupReactDivision==='signupJs' && <div className="signupvennilaPreview">
-                                        <div className="copiedMessage">
-                                            <LuCopy onClick={()=>{copyLoginHandler('signupVennila',signupjscode)}}
-                                            className={!loginCopied.signupVennila ? "formnotCopied" : "formCopyicon"}/>
-                                            {loginCopied.signupVennila && <p>Copied</p>}
-                                        </div>
-                                        <pre className="loginreactpre">
-                                            <p>{signupjscode}</p>
-                                        </pre>
-                                    </div>}
+                                {signupJsState==='yesOpen' && <div className="signupvennilaPreview">
+                                    <div className="copiedMessage">
+                                        {loginCopied.signupVennila ? <LuCopy onClick={()=>{copyLoginHandler('signupVennila',signupjscode)}}
+                                        className="formnotCopied"/> :
+                                        <p className="codeCopied">Copied</p>}
+                                    </div>
+                                    <pre className="loginreactpre">
+                                        <p>{signupjscode}</p>
+                                    </pre>
+                               </div>}
+
+                               {signupTailwind==='yesOpen' && <div className="signupvennilaPreview">
+                                    <div className="copiedMessage">
+                                        {loginCopied.signupTailwindCopy ? <LuCopy onClick={()=>{copyLoginHandler('signupTailwindCopy',signupTailwindCodes)}}
+                                        className="formnotCopied"/> :
+                                        <p className="codeCopied">Copied</p>}
+                                    </div>
+                                    <pre className="loginreactpre">
+                                        <p>{signupTailwindCodes}</p>
+                                    </pre>
+                               </div>}
 
                                 </div> 
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
         </>

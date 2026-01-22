@@ -124,7 +124,7 @@
     gap: 4px;
     margin-bottom: 5px;
 }
-.reactButton,.jsButton{
+.buttonnotClicked{
     border-width: 0px 0px 0px 0px;
     padding: 5px;
     font-size: 15px;
@@ -133,7 +133,7 @@
     border: none;
     outline: none;
 }
-.reactButton:hover,.jsButton:hover{
+.buttonnotClicked:hover{
     color: var(--LightBgColor);
     opacity: 0.5;
     cursor: pointer;
@@ -162,19 +162,26 @@
     font-size: 13px;
     margin-left: 5px;
 }
-.formCopyicon{
-    align-self: flex-start;
-    font-size: 16px;
-    color: rgb(23, 252, 23);
-    margin: 2px 2px 0px 8px;
-    cursor: pointer;
-}
+
 .formnotCopied{
     color: var(--LightBgColor);
     font-size: 16px;
     align-self: flex-start;
     margin: 2px 2px 0px 8px;
     cursor: pointer;
+}
+
+.copyMessageSection{
+    height: 20px;
+}
+.codeCopied{
+    color: #0B0729;
+    background-color: var(--primaryBgcards);
+    padding: 2px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    font-size: 15px;
+    width: fit-content;
 }
 .formInputsnotDone{
     color: red;
