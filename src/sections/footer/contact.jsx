@@ -10,7 +10,7 @@ function FooterSection() {
         <>
             <footer>
                 <div>
-                    <h2 className='footerlogo'>PreStyles</h2>
+                    <h2 className='footerlogo'>Pigment UI</h2>
                 </div>
 
                 <div className='footerLinks'>

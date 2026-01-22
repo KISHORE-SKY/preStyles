@@ -10,10 +10,9 @@ function HomeSection() {
         <>
             <main>
                 <section className="aboutSection">
-                    <h1 className="title">PreStyles</h1>
+                    <h1 className="title">Pigment UI</h1>
                     <div className="homeDescription">
-                        <p>Discover ready-made UI styles and design tools in one place.
-                           Build faster with customizable components and modern effects.</p>
+                        <p>Elevate your design with Pigment UI, an all-in-one toolkit for crafting stunning visual elements. Instantly generate custom CSS for everything from vibrant gradients and palettes to modern Glassmorphism, buttons, and shadows. Skip the manual coding and build high-quality, professional interfaces in seconds with our precise, easy-to-use generators.</p>
                     </div>
                     <div className="exploreButton">
                         <TbToolsOff className="exploreIcons"/>

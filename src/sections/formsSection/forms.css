@@ -147,6 +147,7 @@
     color: var(--LightBgColor);
     border: none;
     outline: none;
+    cursor: pointer;
 }
 .conditions{
     display: flex;

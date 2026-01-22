@@ -25,7 +25,7 @@ main{
 }
 .title{
     color: var(--LightBgColor);
-    font-size: 35px;
+    font-size: 32px;
 }
 .homeDescription p{
     color: rgb(35, 34, 92);
@@ -71,6 +71,8 @@ main{
         display: grid;
         grid-template-columns: minmax(300px,500px);
         gap: 30px;
+        height: auto;
+        padding: 50px 30px;
     }
     .explore{
         font-size: 14px;

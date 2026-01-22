@@ -4,12 +4,16 @@ import { FaMoon } from "react-icons/fa";
 import { CgMenuRight } from "react-icons/cg";
 import { FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
 function Navbar() {
 
     const [openList,setOpenList]=useState(false);
-    const [navbarmenu,setNavbarMenu]=useState(false);
+    const [outsideClickHamberg,setOutsideClickHamberg]=useState(false);
+    function onOutsideClick(){
+        setOutsideClickHamberg(true);
+    }
     
     const catogiriesMenu=useRef(null);
 
@@ -30,30 +34,12 @@ function Navbar() {
         setOpenList(prev => !prev);
     }
 
-    const mobileMenuRef=useRef(null);
-    useEffect(()=>{
-        const hambergMobileMenu=(event)=>{
-            if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
-                setNavbarMenu(false);
-            }
-            document.addEventListener('mousedown',hambergMobileMenu);
-
-            return ()=>{
-                document.removeEventListener('mousedown',hambergMobileMenu);
-            }
-        }
-    },[]);
-    
-    function menuNavbar() {
-        setNavbarMenu(prev => !prev);
-    }
-
     return(
         <>
             <header className="navbarSection">
 
                 <div style={{paddingLeft:'20px'}}>
-                    <h2 className="logo">PreStyles</h2>
+                    <h2 className="logo">Pigment UI</h2>
                 </div>
                 
                 <section className="wholeLists">
@@ -95,14 +81,14 @@ function Navbar() {
                         </div>
                     </nav>
 
-                  
+                <OutsideClickHandler onOutsideClick={() => setOutsideClickHamberg(false)}>
                     <div className="menuIcon" >
-                        <CgMenuRight style={{color:'#fff',fontSize:'20px'}} onClick={menuNavbar} />
+                        <CgMenuRight style={{color:'#fff',fontSize:'20px'}} onClick={() => setOutsideClickHamberg(!outsideClickHamberg)}/>
                     </div>
-
-                {navbarmenu && (
-                    <nav className="mobileNavMenu" ref={mobileMenuRef}>
-                     {/* <nav className={`mobileNavMenu ${navbarmenu}? "show" : ""`}> */}
+                
+                
+                {outsideClickHamberg && (
+                    <nav className="mobileNavMenu" >
                         <ul className="navListsPotrait">
                             <li><Link to='/' className="linkDrop">Home</Link></li>  
                             <li><Link to='/color' className="linkDrop">Color Picker</Link></li>
@@ -120,6 +106,7 @@ function Navbar() {
                         </div>
                     </nav>
                 )}
+                </OutsideClickHandler>
                 
                 </section>
             </header>
@@ -129,3 +116,4 @@ function Navbar() {
 
 
 export default Navbar;
+
