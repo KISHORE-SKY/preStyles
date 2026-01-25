@@ -5,6 +5,7 @@ import { LuCopy } from "react-icons/lu";
 import { IoEyeSharp } from "react-icons/io5";
 import { RiUserFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 function FormComponents() {
 
@@ -1436,6 +1437,7 @@ export default SignupForm;
                             </div>
                         </div>
                     </div>
+                    <GoesTop />
                 </div>
             </section>
         </>

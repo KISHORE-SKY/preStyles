@@ -39,7 +39,7 @@ function Navbar() {
 
     return(
         <>
-            <header className="navbarSection">
+            <header className="navbarSection" id="mainNavbar">
 
                 <div style={{paddingLeft:'20px'}}>
                     <h2 className="logo">Pigment UI</h2>
@@ -80,7 +80,7 @@ function Navbar() {
                         
                         <div style={{display:'flex',alignItems:'center',gap:'7px',width:'25px'}} onClick={toggleTheme} >
                             {isDarkMode ?<MdLightMode style={{fontSize:'20px',cursor:'pointer' }}/> :
-                            <FaMoon style={{fontSize:'18px',cursor:'pointer'}}/>}
+                            <FaMoon style={{fontSize:'20px',cursor:'pointer'}}/>}
                         </div>
                     </nav>
 
@@ -105,7 +105,7 @@ function Navbar() {
                         
                         <div style={{display:'flex',alignItems:'center',gap:'7px'}} onClick={toggleTheme}>
                             {isDarkMode ? <MdLightMode style={{fontSize:'20px',cursor:'pointer'}}/> : 
-                            <FaMoon style={{fontSize:'18px',cursor:'pointer'}}/>}
+                            <FaMoon style={{fontSize:'20px',cursor:'pointer'}}/>}
                         </div>
                     </nav>
                 )}

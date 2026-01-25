@@ -1,0 +1,16 @@
+.goTopComponent{
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
+}
+.backToTop{
+    font-size: 32px;
+    color: var(--primaryTextColor);
+    background-color: var(--lightBgColor);
+    border-radius: 25px;
+    padding: 7px;
+}

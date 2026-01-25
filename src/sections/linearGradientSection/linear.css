@@ -237,7 +237,12 @@ label{
     }
     .mainLinearSection{
         grid-template-columns: minmax(280px,1fr);
-        justify-content: center;
+    }
+    .angleLinear{
+       margin: 0; 
+    }
+    .customLinearSection{
+         margin: 10px;
     }
 }
 

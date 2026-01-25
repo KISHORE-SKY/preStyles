@@ -46,13 +46,12 @@
     cursor: pointer;
     padding: 10px;
     width: 225px;
-    margin: 5px;
 }
 .colorRange{
     width: 225px;
     accent-color: var(--primaryTextColor);
     outline: none;
-     cursor: ew-resize;
+    cursor: ew-resize;
 }
 .rgbaHslValues{
     display: flex;
@@ -110,7 +109,7 @@
 .inputsOfColor{
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 5px;
 }
 
 .coloredCopyInActive{
@@ -140,6 +139,7 @@
         row-gap: 20px;
         height: auto;
     }
+
     .rgbaHslValues{
     align-items: flex-start;
     }
@@ -160,6 +160,7 @@
         display: grid;
         grid-template-columns: minmax(200px,225px) minmax(300px,1fr);
     }
+    
 }
 @media (max-width:600px){
     .colorPickSideNavbar{

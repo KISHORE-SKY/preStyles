@@ -4,6 +4,7 @@ import { LuCopy } from "react-icons/lu";
 import { HexColorPicker,HexColorInput } from "react-colorful"
 import { colord } from "colord"
 import { useState } from "react";
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 function LinearGradients() {
     
@@ -89,7 +90,7 @@ function LinearGradients() {
                 <section className="customLinearSection">
                     <div className="previewSection">
                         <h3>Linear Gradient</h3>
-                        <div className="previewgradientBox" 
+                        <div className="previewgradientBox"  
                         style={{background:linearBg}}>
                         </div>
 
@@ -176,7 +177,7 @@ function LinearGradients() {
                          </div>
                         
                     </div>
-                    
+                    <GoesTop />
                 </section>
             </section>
         </>

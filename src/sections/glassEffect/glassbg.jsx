@@ -6,6 +6,7 @@ import {HexColorPicker,HexColorInput} from "react-colorful";
 import { colord } from "colord";
 import { useState } from "react";
 import { LuCopy } from "react-icons/lu";
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 function GlassMorphism() {
 
@@ -191,6 +192,7 @@ const tailwindCodesGM=`<div className="bg-[${glassOFBg}] backdrop-blur-[${blurRa
                         </div>
 
                     </div>
+                    <GoesTop />
                 </section>
 
             </section>

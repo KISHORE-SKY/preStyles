@@ -1,17 +1,24 @@
+import errorImage from "../../assets/9020.jpg";
+import "./error.css";
+import {Link} from "react-router-dom";
+
 function ErrorElemet() {
-    const errorLayout={
-        display:'flex',
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center',
-        height:'100vh'
-    }
     return(
         <>
-            {/* <section style={errorLayout}>
-                <h1 style={{fontSize:'100px', color:'rgba(50,5,49,0.5)'}}>404</h1>
-                <p style={{color:'rgba(9, 46, 71, 0.7)', fontSize:'19px'}}>Styles system pages not found!</p>
-            </section> */}
+            <section className="errorPageContent">
+                <div className="errorPageMessageBox">
+                    <h1>Ooops!</h1>
+                    <div>
+                        <p>Something wrong here...</p>
+                        <p>kindly go back home then click explore tools button.</p>
+                    </div>
+                    <button className="errorPageButton"><Link to="/" className="homeButtonError">Go Back Home</Link></button>
+                </div>
+                <div className="pictureBoxError">
+                    <img src={errorImage} className="errorPicture"/>
+                </div>
+                
+            </section>
         </>
     );
 }

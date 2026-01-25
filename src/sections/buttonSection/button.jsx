@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { useRef } from "react";
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 
 function Buttons() {
@@ -488,10 +489,12 @@ const hoverHtmlCss=`
                                 onClick={()=>sliderRef.current.slickNext()}>Next...</button>
                             </div>  
                         </section>
-                    </section>    
+                    </section> 
+                    <GoesTop />   
                 </section>
                 
             </section>
+            
         </>
     );
 }

@@ -1,0 +1,87 @@
+.errorPageContent{
+    display: grid;
+    grid-template-columns: minmax(300px,425px) minmax(300px,425px);
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    padding: 15px;
+}
+.errorPageMessageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    gap: 7px;
+}
+.errorPageMessageBox h1{
+    color: var(--primaryTextColor);
+    font-size: 60px;
+    word-spacing: 2px;
+}
+.errorPageMessageBox p{
+    color: var(--primaryTextColor);
+    font-size: 20px;
+    text-align: center;
+}
+.errorPageButton{
+    border: none;
+    outline: none;
+    background-color: var(--primaryTextColor);
+    color: var(--darkColor);
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 6px;
+}
+.homeButtonError{
+    color: var(--darkColor);
+    text-decoration: none;
+}
+.pictureBoxError{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.errorPicture{
+    width: 380px;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width:1024px){
+    .errorPageContent{
+        grid-template-columns: minmax(300px,350px) minmax(300px,350px);
+    }
+    .errorPicture{
+        width: 350px;
+    }
+    .errorPageMessageBox p{
+        font-size: 18px;
+    }
+    .errorPageMessageBox h1{
+        font-size: 50px;
+    }
+}
+@media (max-width:767px){
+    .errorPageContent{
+        grid-template-columns: minmax(300px,350px);
+        height: auto;
+        
+    }
+    .errorPageMessageBox{
+        order: 2;
+    }
+    .pictureBoxError{
+        order: 1;
+    }
+
+}
+@media (max-width:375px){
+    .errorPageContent{
+        grid-template-columns: minmax(290px,300px);       
+    }
+    .errorPicture{
+        max-width: 90%;
+        align-self: center;
+    }
+}

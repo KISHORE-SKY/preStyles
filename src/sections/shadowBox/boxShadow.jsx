@@ -4,6 +4,7 @@ import{ HexColorPicker,HexColorInput } from "react-colorful"
 import { colord } from "colord";
 import SideBar from "../navbar/sidebar"
 import { useState } from "react";
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 
 function BoxShadow() {
@@ -162,6 +163,7 @@ const shadowTailwindCodes=`<div className="shadow-[${convertedShadowCodes}]"></d
 
 
                         </div>
+                        <GoesTop />
                 </section>
             </section>
         </>

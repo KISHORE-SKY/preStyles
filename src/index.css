@@ -10,17 +10,22 @@
     --navbar-before:#F7F7F7;
     --button-special:#0B0729;
     --button-text:#fff;
+    --footer-shadow:rgba(0,0,0,0.0);
 }
 .dark{
     --darkColor:#0B0729;
     --primaryTextColor:#fff;
     --lightBgColor:rgb(35, 34, 92);
+    --footer-shadow:rgba(0,0,0,0.3);
 }
 body{
     background-color: var(--darkColor);
     color: var(--primaryTextColor);
     transition: background-color 0.3s ease,color 0.3s ease;
     margin: 0;
+}
+html{
+    scroll-behavior: smooth;
 }
 
 *{

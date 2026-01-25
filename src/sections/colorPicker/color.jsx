@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import SideBar from "../navbar/sidebar";
 import {HexColorPicker,HexColorInput} from "react-colorful";
 import './picker.css'
@@ -6,17 +6,18 @@ import '../navbar/sideNav.css'
 import { IoMdColorPalette } from "react-icons/io";
 import { colord } from "colord";
 import { LuCopy } from "react-icons/lu";
-import  GoesTop  from "../../assets/components/top.jsx"
+import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 
 function ColorPicker() {
 
     const [hexColor,setHexColor]=useState('#ef139e');
-    const [copy,setCopy]=useState({
-       rgbColor:'239, 19, 158',
-        hslColor:'322, 87%, 51%',
-        rgbaColor:'239,19,158,1'
-    });
+
+    // const [copy,setCopy]=useState({
+    //    rgbColor:'239, 19, 158',
+    //     hslColor:'322, 87%, 51%',
+    //     rgbaColor:'239,19,158,1'
+    // });
     const [isCopied,setIsCopied]=useState({
         hex:true,
         rgb:true,
@@ -24,9 +25,9 @@ function ColorPicker() {
         rgba:true
     });
     const [alphaOpacity,setAlphaOpacity]=useState(1);
-    const rgb=colord(hexColor).toRgb();
-    const hsl=colord(hexColor).toHsl();
-    const rgba=colord(hexColor).alpha(alphaOpacity).toRgb();
+    const rgb=useMemo(()=>colord(hexColor).toRgb(),[hexColor]);
+    const hsl=useMemo(()=>colord(hexColor).toHsl(),[hexColor]);
+    const rgba=useMemo(()=>colord(hexColor).alpha(alphaOpacity).toRgb(),[hexColor,alphaOpacity]);
 
     const rgbText=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
     const hslText=`hsl(${Math.round(hsl.h)},${Math.round(hsl.s)}%,${Math.round(hsl.l)}%)`;
@@ -64,7 +65,7 @@ function ColorPicker() {
                     
                         <label className="hexLabel">HEX:</label>
                            <div className="inputsOfColor">
-                                <HexColorInput color={hexColor} readOnly 
+                                <HexColorInput color={hexColor}
                                 onChange={setHexColor} 
                                 prefixed className="colorInput" 
                                 />
@@ -117,7 +118,7 @@ function ColorPicker() {
                             className= 'coloredCopyInActive'/>
                             :<p className="copiedMessageColor">Copied</p>}
                             </div>
-                            <GoesTop />
+                           
                            <label className="hexLabel">RGBA & Opacity:</label>
                            <div className="inputsOfColor">
                            <p className="colorValueDisplay">{rgbaText}</p>
@@ -133,8 +134,9 @@ function ColorPicker() {
                         </div>
                         
                     </div>
+                    <GoesTop />
                 </section>
-
+                        
             </section>
         </>
     );

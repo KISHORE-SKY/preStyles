@@ -3,7 +3,7 @@ import { MdAttachEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { SiNetlify } from "react-icons/si";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 function FooterSection() {
     return(
