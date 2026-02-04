@@ -82,9 +82,9 @@ function FormComponents() {
 
     const loginPreCodesReact=`
 import { useState } from "react";
-import { IoEyeSharp } from "react-icons/io5";
 import { RiUserFill } from "react-icons/ri";
-import { MdEmail } from "react-icons/md";
+import { IoEyeSharp } from "react-icons/io5";
+
 
 function Login(){
     const [loginUsername,setLoginUsername]=useState('');
@@ -986,7 +986,7 @@ const loginTailwindCodes=`
 import { useState } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { RiUserFill } from "react-icons/ri";
-import { MdEmail } from "react-icons/md";
+
 
 function Login(){
     const [loginUsername,setLoginUsername]=useState('');
@@ -1040,37 +1040,47 @@ function Login(){
 
     return(
         <>
-            <form className="flex flex-col gap-[10px] items-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
-                <div className="flex flex-col gap-[4px]">                                
-                <label htmlFor="logusername">Username:</label>
-                    <div className="w-[275px] h-[37px] flex items-center rounded-[5px] text-[#0B0729] 
-                    ">
-                        <input type="text" placeholder="username"
-                        value={loginUsername}
-                        onChange={loginUsernameHandler} id="logusername" classname="placeholder-[#0B0729]  px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <RiUserFill />
-                    </div>
-                    <p className="text-red-600 h-[20px]"
-                    >{loginErrorUser}</p>
-                </div>
+                        <section className="grid grid-cols-[minmax(290px,300px)] justify-center py-9 pt-[95px] px-1
+            sm:grid-cols-[minmax(340px,365px)] md:grid-cols-[minmax(350px,375px)] gap-3">
 
-                <div className="flex flex-col gap-[10px] align-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
-                    <label htmlFor="logPassword">Password:</label>
-                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] flex items-center">
-                        <input type={typeInput} placeholder="password"
-                        value={loginPassword}
-                        onChange={loginPasswordHandler} id="logPassword" classname="placeholder-[#0B0729] px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <IoEyeSharp onClick={loginShowPassword}/>
+                <h2 className="text-[#0B0729] font-bold text-2xl text-center h-fit">LOGIN</h2>
+
+                <form className="flex flex-col gap-[10px] items-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[290px]
+                shadow-[0px_0px_10px_1px_rgba(0,0,0,0.2)]  sm:w-[335px] md:w-[350px] md:m-2 h-fit">
+                    <div className="flex flex-col gap-[4px]">                                
+                    <label htmlFor="logusername" className="md:font-semibold">Username:</label>
+                        <div className="w-[250px] h-[37px] flex items-center rounded-[10px] px-2 bg-[#fff] text-[#0B0729] 
+                        ">
+                            <input type="text" placeholder="username"
+                            value={loginUsername}
+                            onChange={loginUsernameHandler} id="logusername" className="placeholder-[#0B0729] px-1 w-[265px] h-[35px] border-none outline-none"/>
+                            <RiUserFill className="text-lg"/>
+                        </div>
+                        <p className="text-red-600 h-[20px] text-md">{loginErrorUser}</p>
                     </div>
-                    <p className="text-red-600 h-[20px]">{loginErrorPassword}</p>
-                </div>
+
+                    <div className="flex flex-col gap-[4px] ">
+                        <label htmlFor="logPassword" className="md:font-semibold">Password:</label>
+                        <div className="w-[250px] h-[37px] rounded-[10px] flex items-center px-2 bg-[#fff] text-[#0B0729]">
+                            <input type={typeInput} placeholder="password"
+                            value={loginPassword}
+                            onChange={loginPasswordHandler} id="logPassword" className="placeholder-[#0B0729] px-1 w-[265px] h-[35px] border-none outline-none"/>
+                            <IoEyeSharp className="text-lg" onClick={loginShowPassword}/>
+                        </div>
+                        <p className="text-red-600 h-[20px]">{loginErrorPassword}</p>
+                    </div>
+
+                    <div className="flex-col items-end w-[250px] mb-2">
+                        <p className="text-right">Forgot Password ?</p>
+                    </div>
                             
-                <div>
-                    <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] text-[#fff] rounded-[5px] 
-                    transition duration-300 ease-in-out hover:opacity-[0.9] cursor-pointer" 
-                    onClick={LoginHandler}>Login</button>
-                </div>
-            </form>
+                    <div>
+                        <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] text-[#fff] rounded-[5px] 
+                        transition duration-300 ease-in-out hover:opacity-[0.8] cursor-pointer" 
+                        onClick={LoginHandler}>Login</button>
+                    </div>
+                </form>
+            </section>
         </>
     );
 }
@@ -1201,61 +1211,79 @@ function SignupForm(){
 
     return(
         <>
-            <form className="flex flex-col gap-[10px] align-center bg-[#F7F7F7] text-[#0B0729] p-[20px] rounded-[10px] w-[375px]">
-                <div className="flex flex-col gap-[4px]">
-                    <label htmlFor="name">Username:</label>
-                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] flex items-center">
-                        <input type="text" placeholder="Username"  
-                        id="name" value={signUpusername} onChange={signupUsernameHandler} classname="placeholder-[#0B0729] px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <RiUserFill />
-                    </div>
-                    <p className="text-red-600 h-[20px]">{signupErrorMessage.username}</p>
-                </div>
-
-                <div className="flex flex-col gap-[4px]">
-                    <label htmlFor="email">Email:</label>
-                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] flex items-center">
-                        <input type="email" placeholder="Email"  
-                        id="email" value={signupEmail} onChange={signupEmailHandler} classname="placeholder-[#0B0729] px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <MdEmail />
-                    </div>
-                    <p className="text-red-600 h-[20px]">{signupErrorMessage.email}</p>
-                </div>
-                            
-                <div className="flex flex-col gap-[4px]">
-                    <label htmlFor="passwords">Password:</label>
-                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] flex items-center" >
-                        <input type={firstPasswordType} placeholder="Password" 
-                        id="passwords" value={signupPassword} onChange={signupPasswordHandler} classname="placeholder-[#0B0729] px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <IoEyeSharp onClick={signupShowPassword}/>
-                    </div>
-                    <p className="text-red-600 h-[20px]">{signupErrorMessage.password}</p>
-                </div>
-
-                <div className="flex flex-col gap-[4px]">
-                    <label htmlFor="confirm">Confirm Password:</label>
-                    <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] flex items-center" >
-                        <input type={confirmPasswordShow} placeholder="Confirm password" 
-                        id="confirm" value={confirmSignup} onChange={signupConfirmHandle} classname="placeholder-[#0B0729] px-[9px] w-[265px] h-[35px] border-none outline-none"/>
-                        <IoEyeSharp onClick={signupConfirmShowPassword}/>
-                    </div>
-                    <p className="text-red-600 h-[20px]">{signupErrorMessage.confirmPassword}</p>
-                </div>
-
-                <div className="flex justify-start align-center mr-[50px]">
-                    <input type="checkbox" name="termsCondition" className="cursor-pointer accent-[#0B0729]" required/>
-                    <label htmlFor="termsCondition" className="text-md">
-                        I agree to the Terms & Privacy Policy
-                    </label>
-                </div>
-
+            <section className="flex flex-col items-center py-7 pt-[80px] mt-5 gap-3">
                 <div>
-                    <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] 
-                    text-[#fff] rounded-[5px] transition duration-300 ease-in-out hover:opacity-[0.9] cursor-pointer" 
-		            onClick={SignUpValidation}>Sign Up</button>
+                    <h1 className="text-2xl text-[#0B0729] font-semibold">Signup</h1>
                 </div>
+
+                <form className="flex flex-col gap-[10px] items-center bg-[#F7F7F7] text-form-text p-[20px] rounded-[10px] w-[295px]
+                shadow-[0px_0px_10px_1px_rgba(0,0,0,0.2)] sm:w-[375px]">
+                    <div className="flex flex-col gap-[4px]">
+                        <label htmlFor="name">Username:</label>
+                        <div className="w-[275px] h-[35px] rounded-[5px] text-[#0B0729] px-2 bg-[#fff] flex items-center
+                        sm:w-[300px]">
+                            <input type="text" placeholder="Username"  
+                            id="name" value={signUpusername} onChange={signupUsernameHandler} className="placeholder-[#0B0729] px-[9px] w-[225px] h-[35px] border-none outline-none
+                            sm:w-[275px]"/>
+                           <RiUserFill />
+                        </div>
+                        <p className="text-red-600 h-[20px]">{signupErrorMessage.username}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-[4px]">
+                        <label htmlFor="email">Email:</label>
+                        <div className="w-[255px] h-[35px] rounded-[5px] text-[#0B0729] px-2 bg-[#fff] flex items-center
+                        sm:w-[300px]">
+                            <input type="email" placeholder="Email"  
+                            id="email" value={signupEmail} onChange={signupEmailHandler} 
+                            className="placeholder-[#0B0729] px-[9px] w-[225px] h-[35px] border-none outline-none
+                            sm:w-[275px]"/>
+                            <MdEmail />
+                        </div>
+                        <p className="text-red-600 h-[20px]">{signupErrorMessage.email}</p>
+                    </div>
                             
-            </form>  
+                    <div className="flex flex-col gap-[4px]">
+                        <label htmlFor="passwords">Password:</label>
+                        <div className="w-[255px] h-[35px] rounded-[5px] text-[#0B0729] px-2 bg-[#fff] flex items-center
+                        sm:w-[300px]" >
+                            <input type={firstPasswordType} placeholder="Password" 
+                            id="passwords" value={signupPassword} onChange={signupPasswordHandler} 
+                            className="placeholder-[#0B0729] px-[9px] w-[225px] h-[35px] border-none outline-none 
+                            sm:w-[275px]"/>
+                            <IoEyeSharp onClick={signupShowPassword}/>
+                        </div>
+                        <p className="text-red-600 h-[20px]">{signupErrorMessage.password}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-[4px]">
+                        <label htmlFor="confirm">Confirm Password:</label>
+                        <div className="w-[255px] h-[35px] rounded-[5px] text-[#0B0729] px-2 bg-[#fff] flex items-center
+                        sm:w-[300px]" >
+                            <input type={confirmPasswordShow} placeholder="Confirm password" 
+                            id="confirm" value={confirmSignup} onChange={signupConfirmHandle} 
+                            className="placeholder-[#0B0729] px-[9px] w-[225px] h-[35px] border-none outline-none
+                            sm:w-[275px]"/>
+                            <IoEyeSharp onClick={signupConfirmShowPassword}/>
+                        </div>
+                        <p className="text-red-600 h-[20px]">{signupErrorMessage.confirmPassword}</p>
+                    </div>
+
+                    <div className="flex justify-start align-center gap-2">
+                        <input type="checkbox" name="termsCondition" className="cursor-pointer accent-[#0B0729]" required/>
+                        <label htmlFor="termsCondition" className="text-md">
+                            I agree to the Terms & Privacy Policy
+                        </label>
+                    </div>
+
+                    <div className="flex justify-center">
+                        <button className="w-[75px] h-[30px] border-none outline-none bg-[#0B0729] 
+                        text-[#fff] rounded-[5px] transition duration-300 ease-in-out hover:opacity-[0.8] cursor-pointer" 
+		                onClick={SignUpValidation}>Sign Up</button>
+                    </div>
+                            
+                </form>     
+            </section> 
         </>
     );
 }

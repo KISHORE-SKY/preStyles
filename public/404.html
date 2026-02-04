@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to Pigment UI</title>
+  <script>
+    // Get current path
+    const path = window.location.pathname;
+    const repoName = 'pigment-UI';
+    
+    // If path doesn't already have repo name, add it
+    if (!path.includes(repoName)) {
+      window.location.href = '/' + repoName + '/';
+    } else {
+      // If path has repo name but not index.html, redirect to root
+      window.location.href = window.location.origin + '/' + "https://KISHORE-SKY.github.io/pigment-UI/" + '/';
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting to Pigment UI application...</p>
+</body>
+</html>

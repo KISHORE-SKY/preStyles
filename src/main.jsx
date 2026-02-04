@@ -16,6 +16,7 @@ import FormComponents from "./sections/formsSection/formui";
 import ErrorElemet from "./sections/errorPage/errors";
 import ThemeContainer from "./themeContent.jsx";
 
+const repoName = "/pigment-UI/";
 
 
 const rountingSections = createBrowserRouter([
@@ -58,7 +59,10 @@ const rountingSections = createBrowserRouter([
       }
     ],
   },
-]);
+],
+{
+  basename: repoName,
+  });
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

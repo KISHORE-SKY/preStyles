@@ -3,10 +3,11 @@ import SideBar from "../navbar/sidebar"
 import { HexColorPicker,HexColorInput } from "react-colorful";
 //import { LuSendHorizontal } from "react-icons/lu";
 import { LuCopy } from "react-icons/lu";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { useRef } from "react";
+import debounce from "lodash.debounce";
 import  GoesTop  from "../../assets/components/topButton/top.jsx"
 
 
@@ -14,6 +15,47 @@ function Buttons() {
 
     const [backgroudPicker,setBackgroundPicker]=useState('#0B0729');
     const [textColor,setTextColor]=useState('#0edc34');
+
+    const updatesGlobal=(finalColor)=>{
+        console.log(`saves in global, ${finalColor}`);
+    }
+    // const debounceOfBGupdate=useMemo(()=>{
+    //     debounce(updatesGlobal,500)
+    // },[])
+
+    const debounceOfBGupdate=useMemo(
+        ()=>debounce(updatesGlobal,500),[]
+    )
+
+    useEffect(()=>{
+        return()=>{
+            debounceOfBGupdate.cancel();
+        }
+    },[debounceOfBGupdate]);
+
+    const bgColorHandler=(newColor)=>{
+        setBackgroundPicker(newColor);
+        debounceOfBGupdate(newColor);
+    }
+
+
+    const updateTextGlobal=(finalColor)=>{
+        console.log(`saving in text global ${finalColor}`);
+    }
+    const debouncedTextUpdate=useMemo(
+            ()=> debounce(updateTextGlobal,500),[]
+        )
+    
+        useEffect(()=>{
+            return()=>{
+                debouncedTextUpdate.cancel();
+            }
+        },[debouncedTextUpdate]);
+    
+        const handleTextColor=(newColor)=>{
+            setTextColor(newColor);
+            debouncedTextUpdate(newColor);
+        }
 
     const basicHtmlCss=`
 <button className="basic">Button</button>
@@ -257,13 +299,13 @@ const hoverHtmlCss=`
                             <div className="backgroundPicker">
                                 <label className="pickerHeading">Background Color:</label>
                                 <HexColorPicker className="picker" onChange={setBackgroundPicker} color={backgroudPicker}/>
-                                <HexColorInput onChange={setBackgroundPicker}
+                                <HexColorInput onChange={bgColorHandler}
                                  color={backgroudPicker} prefixed
                                  className="displayInput"/>
                             </div>
                             <div className="textColorPick">
                                 <label className="pickerHeading">Text Color:</label>
-                                <HexColorPicker className="picker" color={textColor} onChange={setTextColor}/>
+                                <HexColorPicker className="picker" color={textColor} onChange={handleTextColor}/>
                                 <HexColorInput prefixed color={textColor}
                                  onChange={setTextColor} className="displayInput"/>
                             </div>

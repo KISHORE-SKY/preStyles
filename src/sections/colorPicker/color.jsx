@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useCallback,useMemo, useState } from "react";
 import SideBar from "../navbar/sidebar";
 import {HexColorPicker,HexColorInput} from "react-colorful";
 import './picker.css'
@@ -7,31 +7,15 @@ import { IoMdColorPalette } from "react-icons/io";
 import { colord } from "colord";
 import { LuCopy } from "react-icons/lu";
 import  GoesTop  from "../../assets/components/topButton/top.jsx";
-import debounce from "lodash.debounce";
+
+import { debounce } from 'lodash';
 
 
 function ColorPicker() {
 
     const [hexColor,setHexColor]=useState('#ef139e');
 
-    const updateGlobalState=(finalColor)=>{
-        console.log(`saving to globalState: ${finalColor}`);
-        
-    }
-    const debouncedUpdate=useMemo(
-        ()=> debounce(updateGlobalState,500),[]
-    )
-
-    useEffect(()=>{
-        return()=>{
-            debouncedUpdate.cancel();
-        }
-    },[debouncedUpdate]);
-
-    const handleColorChange=(newColor)=>{
-        setHexColor(newColor);
-        debouncedUpdate(newColor);
-    }
+     
 
     const [isCopied,setIsCopied]=useState({
         hex:true,
@@ -77,7 +61,7 @@ function ColorPicker() {
                 <section className="colorSection">
                     <div className="inputColor">
                         <p style={{margin:'5px',fontSize:'18px'}}>Pick a Color</p>
-                        <HexColorPicker color={hexColor} onChange={handleColorChange} className="picker-wrapper"/>
+                        <HexColorPicker color={hexColor} onChange={setHexColor} className="picker-wrapper"/>
                     
                         <label className="hexLabel">HEX:</label>
                            <div className="inputsOfColor">
